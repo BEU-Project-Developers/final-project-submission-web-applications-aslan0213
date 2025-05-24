@@ -1,0 +1,221 @@
+﻿<!-- Header Section Begin -->
+<header class="header-section">
+    <div class="top-nav">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <ul class="tn-left">
+                        <li><i class="fa fa-phone"></i>+994 50 598 69 33</li>
+                        <li><i class="fa fa-envelope"></i> info.luxevoyage@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <div class="tn-right">
+                        @*  <div class="top-social">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-tripadvisor"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        </div> *@
+                        <div class="tn-right d-flex align-items-center justify-content-end gap-4">
+                            <ul class="navbar-nav d-flex flex-row align-items-center gap-3 mb-0">
+                                @{
+                                    var userId = Context.Session.GetInt32("UserId");
+                                    if (userId.HasValue)
+                                    {
+                                        <li class="nav-item me-3">
+                                            <a class="nav-link" asp-controller="Account" asp-action="Logout">Logout</a>
+                                        </li>
+                                        <span>&nbsp;</span>
+                                        <span>&nbsp;</span>
+                                        <span>&nbsp;</span>
+                                        <span>&nbsp;</span>
+                                        <span>&nbsp;</span>
+                                    }
+                                    else
+                                    {
+                                        <li class="nav-item me-3">
+                                            <a class="nav-link" asp-controller="Account" asp-action="Login">Log In</a>
+                                        </li>
+                                        <span>&nbsp;</span>
+                                        <span>&nbsp;</span>
+                                        <li class="nav-item me-3">
+                                            <a class="nav-link" asp-controller="Account" asp-action="Register">Register</a>
+                                        </li>
+                                        <span>&nbsp;</span>
+                                        <span>&nbsp;</span>
+                                        <span>&nbsp;</span>
+                                        <span>&nbsp;</span>
+                                        <span>&nbsp;</span>
+                                    }
+                                }
+                            </ul>
+                            <a asp-controller="Rooms" asp-action="Index" class="bk-btn">Booking Now</a>
+                        </div>
+
+                        @*  <div class="language-option">
+                        <img src="img/flag.jpg" alt="">
+                        <span>EN <i class="fa fa-angle-down"></i></span>
+                        <div class="flag-dropdown">
+                        <ul>
+                        <li><a href="#">Zi</a></li>
+                        <li><a href="#">Fr</a></li>
+                        </ul>
+                        </div>
+                        </div> *@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="logo">
+                        @*  <a > *@
+                        <img src="img/e78837_ebac07382a63407193c81eb49a417fbb~mv2.png" alt="">
+                        @* </a> *@
+                    </div>
+                </div>
+                <div class="col-lg-10">
+                    <div class="nav-menu">
+                        <nav class="mainmenu">
+                            <ul>
+                                <li ><a asp-controller="Home" asp-action="Index">Home</a></li>
+                                <li><a asp-controller="Rooms" asp-action="Index">Rooms</a></li>
+                                <li><a asp-controller="AboutUs" asp-action="Index">About Us</a></li>
+                                @*  <li>
+                                <a href="pages.html">Pages</a>
+                                <ul class="dropdown">
+                                <li><a href="room-details.html">Room Details</a></li>
+                                <li><a href="blog-details.html">Blog Details</a></li>
+                                <li><a href="#">Family Room</a></li>
+                                <li><a href="#">Premium Room</a></li>
+                                </ul>
+                                </li> *@
+                                <li class="active"><a asp-controller="Blog" asp-action="Index">News</a></li>
+                                <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
+                            </ul>
+                        </nav>
+                        <div class="nav-right search-switch">
+                            <i class="icon_search"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Header End -->
+  <!-- Breadcrumb Section Begin -->
+<div class="breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-text">
+                    <h2>Blog</h2>
+                    <div class="bt-option">
+                        <a asp-controller="Home" asp-action="Index">Home</a>
+                        <span>Blog Grid</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb Section End -->
+<!-- Blog Section Begin -->
+<section class="blog-section blog-page spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-item set-bg" data-setbg="img/blog/blog-1.jpg">
+                    <div class="bi-text">
+                        <span class="b-tag">Travel Trip</span>
+                        <h4><a asp-controller="BlogDetailsExample" asp-action="Index">Tremblant In Canada</a></h4>
+                        <div class="b-time"><i class="icon_clock_alt"></i> 15th April, 2025</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-item set-bg" data-setbg="img/blog/blog-2.jpg">
+                    <div class="bi-text">
+                        <span class="b-tag">Camping</span>
+                        <h4><a asp-controller="BlogDetailsExample" asp-action="Index">Choosing A Static Caravan</a></h4>
+                        <div class="b-time"><i class="icon_clock_alt"></i> 15th April, 2019</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-item set-bg" data-setbg="img/blog/blog-3.jpg">
+                    <div class="bi-text">
+                        <span class="b-tag">Event</span>
+                        <h4><a asp-controller="BlogDetailsExample" asp-action="Index">Copper Canyon</a></h4>
+                        <div class="b-time"><i class="icon_clock_alt"></i> 21th April, 2025</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-item set-bg" data-setbg="img/blog/blog-4.jpg">
+                    <div class="bi-text">
+                        <span class="b-tag">Trivago</span>
+                        <h4><a asp-controller="BlogDetailsExample" asp-action="Index">A Time Travel Postcard</a></h4>
+                        <div class="b-time"><i class="icon_clock_alt"></i> 22th April, 2025</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-item set-bg" data-setbg="img/blog/blog-5.jpg">
+                    <div class="bi-text">
+                        <span class="b-tag">Camping</span>
+                        <h4><a asp-controller="BlogDetailsExample" asp-action="Index">A Time Travel Postcard</a></h4>
+                        <div class="b-time"><i class="icon_clock_alt"></i> 25th April, 2025</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-item set-bg" data-setbg="img/blog/blog-6.jpg">
+                    <div class="bi-text">
+                        <span class="b-tag">Travel Trip</span>
+                        <h4><a asp-controller="BlogDetailsExample" asp-action="Index">Virginia Travel For Kids</a></h4>
+                        <div class="b-time"><i class="icon_clock_alt"></i> 28th April, 2019</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-item set-bg" data-setbg="img/blog/blog-7.jpg">
+                    <div class="bi-text">
+                        <span class="b-tag">Travel Trip</span>
+                        <h4><a asp-controller="BlogDetailsExample" asp-action="Index">Bryce Canyon A Stunning</a></h4>
+                        <div class="b-time"><i class="icon_clock_alt"></i> 29th April, 2025</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-item set-bg" data-setbg="img/blog/blog-8.jpg">
+                    <div class="bi-text">
+                        <span class="b-tag">Event & Travel</span>
+                        <h4><a asp-controller="BlogDetailsExample" asp-action="Index">Motorhome Or Trailer</a></h4>
+                        <div class="b-time"><i class="icon_clock_alt"></i> 30th April, 2025</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-item set-bg" data-setbg="img/blog/blog-9.jpg">
+                    <div class="bi-text">
+                        <span class="b-tag">Camping</span>
+                        <h4><a asp-controller="BlogDetailsExample" asp-action="Index">Lost In Lagos Portugal</a></h4>
+                        <div class="b-time"><i class="icon_clock_alt"></i> 30th April, 2025</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="load-more">
+                    <a href="#" class="primary-btn">Load More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Blog Section End -->

@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{8FA0AADF-FA9E-4222-9386-E06ABB384897}|HotelManagementSystem.csproj|c:\\users\\lenovo\\onedrive\\desktop\\c# final proektler(2ci hisse)\\hotelmanagementsystem\\controllers\\premiumkingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8FA0AADF-FA9E-4222-9386-E06ABB384897}|HotelManagementSystem.csproj|solutionrelative:controllers\\premiumkingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8FA0AADF-FA9E-4222-9386-E06ABB384897}|HotelManagementSystem.csproj|c:\\users\\lenovo\\onedrive\\desktop\\c# final proektler(2ci hisse)\\hotelmanagementsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8FA0AADF-FA9E-4222-9386-E06ABB384897}|HotelManagementSystem.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -37,7 +41,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -45,7 +49,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
+              "Title": "PremiumKingController.cs",
+              "DocumentMoniker": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\Controllers\\PremiumKingController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PremiumKingController.cs",
+              "ToolTip": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\Controllers\\PremiumKingController.cs",
+              "RelativeToolTip": "Controllers\\PremiumKingController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-31T21:07:33.107Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\Views\\Rooms\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Rooms\\Index.cshtml",
@@ -57,7 +74,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\Views\\Blog\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Blog\\Index.cshtml",
@@ -69,19 +86,18 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "index.html",
               "DocumentMoniker": "C:\\Users\\lenovo\\OneDrive\\Desktop\\asp.net project\\HotelManagementSystem\\themewagon.github.io\\sona\\index.html",
               "RelativeDocumentMoniker": "..\\..\\asp.net project\\HotelManagementSystem\\themewagon.github.io\\sona\\index.html",
               "ToolTip": "C:\\Users\\lenovo\\OneDrive\\Desktop\\asp.net project\\HotelManagementSystem\\themewagon.github.io\\sona\\index.html",
               "RelativeToolTip": "..\\..\\asp.net project\\HotelManagementSystem\\themewagon.github.io\\sona\\index.html",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAAAF4AAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2025-03-28T13:18:42.12Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\Views\\AboutUs\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\AboutUs\\Index.cshtml",
@@ -93,7 +109,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\Views\\Contact\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Contact\\Index.cshtml",
@@ -105,20 +121,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
               "ToolTip": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAE4AAAAAAAAAAAAAACQAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAAACQAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-28T12:27:44.929Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-28T12:27:44.929Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",

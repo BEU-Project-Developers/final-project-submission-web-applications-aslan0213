@@ -36,7 +36,7 @@ html, body {
 	height: 100%;
 	font-family: "Cabin", sans-serif;
 	-webkit-font-smoothing: antialiased;
-	font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 h1, h2, h3, h4, h5, h6 {
 	margin: 0;
@@ -1838,7 +1838,6 @@ ul, ol {
 	border: none;
 	padding: 14px 42px 13px;
 	display: inline-block;
-	border-radius: 2px;
 }
 /*---------------------
   Recommend Blog
@@ -2335,12 +2334,215 @@ ul, ol {
 		margin-bottom: 10px;
 	}
 }
-.navbar-nav .nav-link {
-	color: #007bff; /* Исходный цвет */
-	transition: color 0.3s ease, background-color 0.3s ease;
+
+/* Custom User Menu Styles */
+.user-menu-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-left: 15px;
 }
 
-	.navbar-nav .nav-link:hover {
-		color: #B38356 !important; /* Новый цвет при наведении */
-		background-color: transparent !important; /* Убираем белый фон */
-	}
+.user-welcome {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    background: linear-gradient(135deg, #dfa974 0%, #B38356 100%);
+    border-radius: 25px;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 2px 10px rgba(223, 169, 116, 0.3);
+    transition: all 0.3s ease;
+}
+
+.user-welcome:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(223, 169, 116, 0.4);
+}
+
+.user-welcome i {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 5px;
+    border-radius: 50%;
+    font-size: 12px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.welcome-text {
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+.user-name {
+    font-weight: 600;
+    font-size: 14px;
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.admin-link, .logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.admin-link {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: white;
+    box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);
+}
+
+.admin-link:hover {
+    background: linear-gradient(135deg, #218838 0%, #1ea885 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
+    color: white;
+    text-decoration: none;
+}
+
+.logout-btn {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+    color: white;
+    box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
+}
+
+.logout-btn:hover {
+    background: linear-gradient(135deg, #c82333 0%, #bd2130 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.4);
+    color: white;
+    text-decoration: none;
+}
+
+.admin-link i, .logout-btn i {
+    font-size: 12px;
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+    .user-menu-container {
+        flex-direction: column;
+        gap: 10px;
+        margin-left: 0;
+        margin-top: 10px;
+    }
+    
+    .user-welcome {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .user-actions {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .user-welcome {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    
+    .user-name {
+        max-width: 100px;
+        font-size: 12px;
+    }
+    
+    .admin-link, .logout-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    
+    .welcome-text {
+        display: none;
+    }
+}
+
+/* Authentication Links Enhancement */
+.auth-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 15px;
+}
+
+.login-btn, .register-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.login-btn {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: white;
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+}
+
+.login-btn:hover {
+    background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
+    color: white;
+    text-decoration: none;
+}
+
+.register-btn {
+    background: transparent;
+    color: #dfa974;
+    border: 2px solid #dfa974;
+}
+
+.register-btn:hover {
+    background: #dfa974;
+    color: white;
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+/* My Bookings Button Styles */
+.mybookings-btn {
+    display: inline-block;
+    padding: 8px 15px;
+    margin-right: 10px;
+    font-size: 13px;
+    color: #ffffff;
+    background: #5392f9;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.mybookings-btn:hover {
+    background: #3274e7;
+    color: white;
+    transform: translateY(-2px);
+    text-decoration: none;
+}

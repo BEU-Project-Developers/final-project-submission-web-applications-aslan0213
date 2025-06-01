@@ -65,4 +65,11 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+// Seed the database with initial room data
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<HotelDbContext>();
+    await HotelManagementSystem.SeedRooms.SeedRoomsData(dbContext);
+}
+
 app.Run();

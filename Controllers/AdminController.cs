@@ -92,6 +92,9 @@ namespace HotelManagementSystem.Controllers
                         .ToList();
                 }
 
+                // Make sure Status matches IsAvailable (ensure consistency)
+                room.Status = room.IsAvailable;
+                
                 room.HotelId = 1; // Default hotel
                 _context.Rooms.Add(room);
                 await _context.SaveChangesAsync();
@@ -125,7 +128,10 @@ namespace HotelManagementSystem.Controllers
                 else
                 {
                     room.Amenities = new List<string>();
-                }                try {
+                }
+                
+                // Make sure Status matches IsAvailable (ensure consistency)
+                room.Status = room.IsAvailable;try {
                     _context.Rooms.Update(room);
                     await _context.SaveChangesAsync();
                     TempData["Success"] = "Room updated successfully!";

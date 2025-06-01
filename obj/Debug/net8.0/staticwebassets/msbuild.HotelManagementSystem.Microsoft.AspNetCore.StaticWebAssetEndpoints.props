@@ -192,17 +192,17 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"g5put84p4p"},{"Name":"integrity","Value":"sha256-LEgFChKAs47ma0Ei3DD3uNDYl3bID3byE9ypWOcB9F0="},{"Name":"label","Value":"_content/HotelManagementSystem/css/slicknav.min.css"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2505"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022LEgFChKAs47ma0Ei3DD3uNDYl3bID3byE9ypWOcB9F0=\u0022"},{"Name":"Last-Modified","Value":"Sat, 24 May 2025 19:15:10 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/HotelManagementSystem/css/style.9jnrn77ern.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\style.css'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"9jnrn77ern"},{"Name":"integrity","Value":"sha256-G21MIyJaSIu\u002B\u002BWpUUV1zcpTDFWiGslb0N4soosWtQ9E="},{"Name":"label","Value":"_content/HotelManagementSystem/css/style.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"47961"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022G21MIyJaSIu\u002B\u002BWpUUV1zcpTDFWiGslb0N4soosWtQ9E=\u0022"},{"Name":"Last-Modified","Value":"Sat, 24 May 2025 19:15:10 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/HotelManagementSystem/css/style.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\style.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-G21MIyJaSIu\u002B\u002BWpUUV1zcpTDFWiGslb0N4soosWtQ9E="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"47961"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022G21MIyJaSIu\u002B\u002BWpUUV1zcpTDFWiGslb0N4soosWtQ9E=\u0022"},{"Name":"Last-Modified","Value":"Sat, 24 May 2025 19:15:10 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-BgU4jpGSoDNJLeWTwc7QuzM7vzddT2e8lp2cs0XOhik="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"51872"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022BgU4jpGSoDNJLeWTwc7QuzM7vzddT2e8lp2cs0XOhik=\u0022"},{"Name":"Last-Modified","Value":"Sun, 01 Jun 2025 16:50:45 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/HotelManagementSystem/css/style.m460uu1r0y.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\style.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"m460uu1r0y"},{"Name":"integrity","Value":"sha256-BgU4jpGSoDNJLeWTwc7QuzM7vzddT2e8lp2cs0XOhik="},{"Name":"label","Value":"_content/HotelManagementSystem/css/style.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"51872"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022BgU4jpGSoDNJLeWTwc7QuzM7vzddT2e8lp2cs0XOhik=\u0022"},{"Name":"Last-Modified","Value":"Sun, 01 Jun 2025 16:50:45 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/HotelManagementSystem/fonts/ElegantIcons.a19wnf102w.woff">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\fonts\ElegantIcons.woff'))</AssetFile>

@@ -36,10 +36,15 @@ namespace HotelManagementSystem.Services
                 .AnyAsync();
 
             return !conflictingBookings;
-        }
-
-        public async Task<List<Room>> GetAvailableRoomsAsync(DateTime checkIn, DateTime checkOut, int guests = 1)
+        }        public async Task<List<Room>> GetAvailableRoomsAsync(DateTime checkIn, DateTime checkOut, int guests = 1)
         {
+            // Handle invalid dates - ensure checkout is after checkin
+            if (checkOut <= checkIn)
+            {
+                return new List<Room>(); // Return empty list for invalid date range
+            }
+
+            // Get booked room IDs for the given date range
             var bookedRoomIds = await _context.Bookings
                 .Where(b => b.Status != "Cancelled" &&
                            ((b.CheckInDate <= checkIn && b.CheckOutDate > checkIn) ||
@@ -48,9 +53,13 @@ namespace HotelManagementSystem.Services
                 .Select(b => b.RoomId)
                 .Distinct()
                 .ToListAsync();
-
+                
+            // Get all available rooms that aren't in the booked list
+            // Both Status and IsAvailable should be true, and room must not be booked
             return await _context.Rooms
-                .Where(r => r.Status && r.Capacity >= guests && !bookedRoomIds.Contains(r.Id))
+                .Where(r => r.Status && r.IsAvailable && 
+                           r.Capacity >= guests && 
+                           !bookedRoomIds.Contains(r.Id))
                 .OrderBy(r => r.Price)
                 .ToListAsync();
         }
@@ -92,13 +101,13 @@ namespace HotelManagementSystem.Services
             booking.Status = status;
             await _context.SaveChangesAsync();
             return true;
-        }
-
-        public async Task<List<Booking>> GetUserBookingsAsync(int userId)
+        }        public async Task<List<Booking>> GetUserBookingsAsync(int userId)
         {
             return await _context.Bookings
                 .Include(b => b.Room)
+                .Include(b => b.User)
                 .Include(b => b.Payments)
+                .Include(b => b.Reviews)
                 .Where(b => b.UserId == userId)
                 .OrderByDescending(b => b.BookingDate)
                 .ToListAsync();

@@ -116,13 +116,26 @@
                             
                             @if (User.Identity.IsAuthenticated)
                             {
-                                <div class="user-menu">
-                                    <span class="user-name">Welcome, @User.FindFirst("FullName")?.Value</span>
-                                    @if (User.IsInRole("Admin"))
-                                    {
-                                        <a href="@Url.Action("Dashboard", "Admin")" class="admin-link">Admin Panel</a>
-                                    }
-                                    <a href="@Url.Action("Logout", "Account")" class="logout-btn">Logout</a>
+                                <div class="user-menu-container">
+                                    <div class="user-welcome">
+                                        <i class="fa fa-user"></i>
+                                        <span class="welcome-text">Welcome,</span>
+                                        <span class="user-name">@User.Identity.Name</span>
+                                    </div>
+                                    <div class="user-actions">
+                                        @if (User.IsInRole("Admin"))
+                                        {
+                                            <a href="@Url.Action("Dashboard", "Admin")" class="admin-link">
+                                                <i class="fa fa-cogs"></i> Admin Panel
+                                            </a>
+                                        }
+                                        <a href="@Url.Action("MyBookings", "Booking")" class="mybookings-btn">
+                                            <i class="fa fa-calendar"></i> My Bookings
+                                        </a>
+                                        <a href="@Url.Action("Logout", "Account")" class="logout-btn">
+                                            <i class="fa fa-sign-out"></i> Logout
+                                        </a>
+                                    </div>
                                 </div>
                             }
                             else

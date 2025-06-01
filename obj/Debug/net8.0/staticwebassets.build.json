@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "9Bu7tNWi4SHbQPOZkrHUHoiK2FI4I4Mw/HUJNBSZL6A=",
+  "Hash": "FrUK6b1OePcaItu2aSEY/JGT79IkK4BRsaoACWvfrJ8=",
   "Source": "HotelManagementSystem",
   "BasePath": "_content/HotelManagementSystem",
   "Mode": "Default",
@@ -409,8 +409,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "9jnrn77ern",
-      "Integrity": "G21MIyJaSIu++WpUUV1zcpTDFWiGslb0N4soosWtQ9E=",
+      "Fingerprint": "m460uu1r0y",
+      "Integrity": "BgU4jpGSoDNJLeWTwc7QuzM7vzddT2e8lp2cs0XOhik=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\style.css"
@@ -3368,51 +3368,6 @@
       ]
     },
     {
-      "Route": "css/style.9jnrn77ern.css",
-      "AssetFile": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\css\\style.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "47961"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"G21MIyJaSIu++WpUUV1zcpTDFWiGslb0N4soosWtQ9E=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 24 May 2025 19:15:10 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "9jnrn77ern"
-        },
-        {
-          "Name": "label",
-          "Value": "css/style.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-G21MIyJaSIu++WpUUV1zcpTDFWiGslb0N4soosWtQ9E="
-        }
-      ]
-    },
-    {
       "Route": "css/style.css",
       "AssetFile": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\css\\style.css",
       "Selectors": [],
@@ -3423,7 +3378,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "47961"
+          "Value": "51872"
         },
         {
           "Name": "Content-Type",
@@ -3431,11 +3386,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"G21MIyJaSIu++WpUUV1zcpTDFWiGslb0N4soosWtQ9E=\""
+          "Value": "\"BgU4jpGSoDNJLeWTwc7QuzM7vzddT2e8lp2cs0XOhik=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 24 May 2025 19:15:10 GMT"
+          "Value": "Sun, 01 Jun 2025 16:50:45 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3445,7 +3400,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-G21MIyJaSIu++WpUUV1zcpTDFWiGslb0N4soosWtQ9E="
+          "Value": "sha256-BgU4jpGSoDNJLeWTwc7QuzM7vzddT2e8lp2cs0XOhik="
+        }
+      ]
+    },
+    {
+      "Route": "css/style.m460uu1r0y.css",
+      "AssetFile": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\css\\style.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "51872"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"BgU4jpGSoDNJLeWTwc7QuzM7vzddT2e8lp2cs0XOhik=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 01 Jun 2025 16:50:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "m460uu1r0y"
+        },
+        {
+          "Name": "label",
+          "Value": "css/style.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-BgU4jpGSoDNJLeWTwc7QuzM7vzddT2e8lp2cs0XOhik="
         }
       ]
     },

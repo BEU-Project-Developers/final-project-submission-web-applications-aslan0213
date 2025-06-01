@@ -19,29 +19,42 @@ namespace HotelManagementSystem.Controllers
             _context = context;
             _bookingService = bookingService;
             _paymentService = paymentService;
-        }
-
-        public async Task<IActionResult> Search(DateTime? checkIn, DateTime? checkOut, int guests = 1, string roomType = "")
+        }        public async Task<IActionResult> Search(DateTime? checkIn, DateTime? checkOut, int guests = 1, string roomType = "")
         {
-            var model = new SearchViewModel
-            {
-                CheckInDate = checkIn ?? DateTime.Today.AddDays(1),
-                CheckOutDate = checkOut ?? DateTime.Today.AddDays(2),
-                Guests = guests,
-                RoomType = roomType
-            };
+            var today = DateTime.Today;
 
-            if (checkIn.HasValue && checkOut.HasValue)
+            // Set default dates if not provided
+            var searchCheckIn = checkIn ?? today.AddDays(1);
+            var searchCheckOut = checkOut ?? today.AddDays(2);
+            
+            // Ensure check-in date is at least tomorrow
+            if (searchCheckIn <= today)
             {
-                model.AvailableRooms = await _bookingService.GetAvailableRoomsAsync(checkIn.Value, checkOut.Value, guests);
-                
-                // Apply filters
-                if (!string.IsNullOrEmpty(roomType))
-                {
-                    model.AvailableRooms = model.AvailableRooms.Where(r => r.Type.Contains(roomType, StringComparison.OrdinalIgnoreCase)).ToList();
-                }
+                searchCheckIn = today.AddDays(1);
             }
 
+            // Ensure checkout is at least one day after checkin
+            if (searchCheckOut <= searchCheckIn)
+            {
+                searchCheckOut = searchCheckIn.AddDays(1);
+            }
+            
+            var model = new SearchViewModel
+            {
+                CheckInDate = searchCheckIn,
+                CheckOutDate = searchCheckOut,
+                Guests = Math.Max(1, guests), // Ensure at least 1 guest
+                RoomType = roomType ?? string.Empty
+            };            // Get available rooms
+            var availableRooms = await _bookingService.GetAvailableRoomsAsync(model.CheckInDate.Value, model.CheckOutDate.Value, model.Guests);
+            
+            // Apply type filter if provided
+            if (!string.IsNullOrEmpty(roomType))
+            {
+                availableRooms = availableRooms.Where(r => r.Type.Contains(roomType, StringComparison.OrdinalIgnoreCase)).ToList();
+            }
+
+            model.AvailableRooms = availableRooms;
             return View(model);
         }
 
@@ -49,13 +62,14 @@ namespace HotelManagementSystem.Controllers
         public async Task<IActionResult> Book(int roomId, DateTime checkIn, DateTime checkOut, int guests = 1)
         {
             var room = await _context.Rooms.FindAsync(roomId);
-            if (room == null) return NotFound();
-
-            // Check availability            if (!await _bookingService.IsRoomAvailableAsync(roomId, checkIn, checkOut))
+            if (room == null) return NotFound();            // Check availability
+            if (!await _bookingService.IsRoomAvailableAsync(roomId, checkIn, checkOut))
             {
                 TempData["Error"] = "This room is not available for the selected dates.";
                 return RedirectToAction("Search");
-            }var model = new BookingViewModel
+            }
+            
+            var model = new BookingViewModel
             {
                 RoomId = roomId,
                 CheckInDate = checkIn,

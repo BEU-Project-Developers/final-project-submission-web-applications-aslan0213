@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "aY2nW6XHbgyx9obbSrvFDghbFMIOhmAMatceTEp7ZH4=",
+  "Hash": "9Bu7tNWi4SHbQPOZkrHUHoiK2FI4I4Mw/HUJNBSZL6A=",
   "Source": "HotelManagementSystem",
   "BasePath": "_content/HotelManagementSystem",
   "Mode": "Default",
@@ -31,8 +31,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
-      "Fingerprint": "ufwg01jwx2",
-      "Integrity": "xiMqhQon2nvcYYEBVy81ZsMKlncQP9Ljut7g4ZdOldU=",
+      "Fingerprint": "864r2pjodj",
+      "Integrity": "4MMNoCcJGzN835BZRmz9FYv0AnWFLdvgI+2CXHPHfh0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\obj\\Debug\\net8.0\\scopedcss\\bundle\\HotelManagementSystem.styles.css"
@@ -52,8 +52,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
-      "Fingerprint": "ufwg01jwx2",
-      "Integrity": "xiMqhQon2nvcYYEBVy81ZsMKlncQP9Ljut7g4ZdOldU=",
+      "Fingerprint": "864r2pjodj",
+      "Integrity": "4MMNoCcJGzN835BZRmz9FYv0AnWFLdvgI+2CXHPHfh0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\HotelManagementSystem.bundle.scp.css"
@@ -4762,6 +4762,96 @@
       ]
     },
     {
+      "Route": "HotelManagementSystem.864r2pjodj.bundle.scp.css",
+      "AssetFile": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\HotelManagementSystem.bundle.scp.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1139"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4MMNoCcJGzN835BZRmz9FYv0AnWFLdvgI+2CXHPHfh0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 01 Jun 2025 07:57:32 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "864r2pjodj"
+        },
+        {
+          "Name": "label",
+          "Value": "HotelManagementSystem.bundle.scp.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-4MMNoCcJGzN835BZRmz9FYv0AnWFLdvgI+2CXHPHfh0="
+        }
+      ]
+    },
+    {
+      "Route": "HotelManagementSystem.864r2pjodj.styles.css",
+      "AssetFile": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\obj\\Debug\\net8.0\\scopedcss\\bundle\\HotelManagementSystem.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1139"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4MMNoCcJGzN835BZRmz9FYv0AnWFLdvgI+2CXHPHfh0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 01 Jun 2025 07:57:32 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "864r2pjodj"
+        },
+        {
+          "Name": "label",
+          "Value": "HotelManagementSystem.styles.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-4MMNoCcJGzN835BZRmz9FYv0AnWFLdvgI+2CXHPHfh0="
+        }
+      ]
+    },
+    {
       "Route": "HotelManagementSystem.bundle.scp.css",
       "AssetFile": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\HotelManagementSystem.bundle.scp.css",
       "Selectors": [],
@@ -4780,11 +4870,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"xiMqhQon2nvcYYEBVy81ZsMKlncQP9Ljut7g4ZdOldU=\""
+          "Value": "\"4MMNoCcJGzN835BZRmz9FYv0AnWFLdvgI+2CXHPHfh0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 24 May 2025 19:18:12 GMT"
+          "Value": "Sun, 01 Jun 2025 07:57:32 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4794,7 +4884,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-xiMqhQon2nvcYYEBVy81ZsMKlncQP9Ljut7g4ZdOldU="
+          "Value": "sha256-4MMNoCcJGzN835BZRmz9FYv0AnWFLdvgI+2CXHPHfh0="
         }
       ]
     },
@@ -4817,11 +4907,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"xiMqhQon2nvcYYEBVy81ZsMKlncQP9Ljut7g4ZdOldU=\""
+          "Value": "\"4MMNoCcJGzN835BZRmz9FYv0AnWFLdvgI+2CXHPHfh0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 24 May 2025 19:18:12 GMT"
+          "Value": "Sun, 01 Jun 2025 07:57:32 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4831,97 +4921,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-xiMqhQon2nvcYYEBVy81ZsMKlncQP9Ljut7g4ZdOldU="
-        }
-      ]
-    },
-    {
-      "Route": "HotelManagementSystem.ufwg01jwx2.bundle.scp.css",
-      "AssetFile": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\HotelManagementSystem.bundle.scp.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1139"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"xiMqhQon2nvcYYEBVy81ZsMKlncQP9Ljut7g4ZdOldU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 24 May 2025 19:18:12 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "ufwg01jwx2"
-        },
-        {
-          "Name": "label",
-          "Value": "HotelManagementSystem.bundle.scp.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-xiMqhQon2nvcYYEBVy81ZsMKlncQP9Ljut7g4ZdOldU="
-        }
-      ]
-    },
-    {
-      "Route": "HotelManagementSystem.ufwg01jwx2.styles.css",
-      "AssetFile": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\obj\\Debug\\net8.0\\scopedcss\\bundle\\HotelManagementSystem.styles.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1139"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"xiMqhQon2nvcYYEBVy81ZsMKlncQP9Ljut7g4ZdOldU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 24 May 2025 19:18:12 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "ufwg01jwx2"
-        },
-        {
-          "Name": "label",
-          "Value": "HotelManagementSystem.styles.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-xiMqhQon2nvcYYEBVy81ZsMKlncQP9Ljut7g4ZdOldU="
+          "Value": "sha256-4MMNoCcJGzN835BZRmz9FYv0AnWFLdvgI+2CXHPHfh0="
         }
       ]
     },

@@ -1,0 +1,146 @@
+@model BookingViewModel
+@{
+    ViewData["Title"] = "Book Room";
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="breadcrumb-content">
+                <div class="breadcrumb-heading">
+                    <h3>Book Room</h3>
+                </div>
+                <div class="breadcrumb-text">
+                    <p>Complete your booking details</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Booking Details</h5>
+                </div>
+                <div class="card-body">
+                    <form asp-action="ConfirmBooking" method="post">
+                        <input type="hidden" asp-for="RoomId" />
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="CheckInDate">Check-in Date</label>
+                                    <input type="date" class="form-control" asp-for="CheckInDate" required readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="CheckOutDate">Check-out Date</label>
+                                    <input type="date" class="form-control" asp-for="CheckOutDate" required readonly>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="NumberOfGuests">Number of Guests</label>
+                                    <select class="form-control" asp-for="NumberOfGuests" required>
+                                        <option value="">Select guests</option>
+                                        @for (int i = 1; i <= 6; i++)
+                                        {
+                                            <option value="@i">@i Guest@(i > 1 ? "s" : "")</option>
+                                        }
+                                    </select>
+                                    <span asp-validation-for="NumberOfGuests" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Total Nights</label>
+                                    <input type="text" class="form-control" value="@Model.TotalNights" readonly>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="SpecialRequests">Special Requests (Optional)</label>
+                            <textarea class="form-control" asp-for="SpecialRequests" rows="4" 
+                                      placeholder="Any special requests or preferences for your stay..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="terms" required>
+                                <label class="form-check-label" for="terms">
+                                    I agree to the <a href="#" target="_blank">Terms and Conditions</a> and <a href="#" target="_blank">Privacy Policy</a>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group text-right">
+                            <a href="@Url.Action("Search", "Booking")" class="btn btn-secondary">Back to Search</a>
+                            <button type="submit" class="btn btn-primary">Confirm Booking</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Booking Summary</h5>
+                </div>
+                <div class="card-body">
+                    @if (Model.Room != null)
+                    {
+                        <div class="mb-3">
+                            <img src="~/img/@Model.Room.Image" class="img-fluid rounded" alt="Room Image">
+                        </div>
+                        <h6>@Model.Room.Type Room - @Model.Room.RoomNumber</h6>
+                        <p class="text-muted">Capacity: @Model.Room.Capacity guests</p>
+                        
+                        @if (Model.Room.Amenities?.Any() == true)
+                        {
+                            <div class="mb-3">
+                                <strong>Amenities:</strong>
+                                <div class="mt-1">
+                                    @foreach (var amenity in Model.Room.Amenities)
+                                    {
+                                        <span class="badge badge-secondary mr-1 mb-1">@amenity</span>
+                                    }
+                                </div>
+                            </div>
+                        }
+                    }
+
+                    <hr>
+                    <div class="d-flex justify-content-between">
+                        <span>Room Rate (per night):</span>
+                        <span>@Model.Room?.Price.ToString("C")</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <span>Number of Nights:</span>
+                        <span>@Model.TotalNights</span>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between font-weight-bold">
+                        <span>Total Amount:</span>
+                        <span class="text-success">@Model.TotalPrice.ToString("C")</span>
+                    </div>
+                    
+                    <div class="mt-3 small text-muted">
+                        <p><strong>Cancellation Policy:</strong> Free cancellation up to 24 hours before check-in. Late cancellations may incur charges.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

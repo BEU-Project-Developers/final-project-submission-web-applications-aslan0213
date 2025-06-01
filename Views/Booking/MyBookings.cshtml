@@ -1,0 +1,312 @@
+@model List<Booking>
+@{
+    ViewData["Title"] = "My Bookings";
+    Layout = "_Layout";
+}
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2><i class="fas fa-calendar-check me-2"></i>My Bookings</h2>
+                <a asp-controller="Booking" asp-action="Search" class="btn btn-primary">
+                    <i class="fas fa-plus me-2"></i>New Booking
+                </a>
+            </div>
+        </div>
+    </div>
+
+    @if (Model?.Any() == true)
+    {
+        <div class="row">
+            @foreach (var booking in Model)
+            {
+                <div class="col-lg-6 mb-4">
+                    <div class="card booking-card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0">Booking #@booking.Id</h5>
+                            <span class="badge badge-@GetStatusClass(booking.Status) badge-lg">@booking.Status</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h6 class="text-primary">@booking.Room.Name</h6>
+                                    <p class="text-muted mb-2">@booking.Room.Type Room</p>
+                                    
+                                    <div class="booking-details">
+                                        <div class="detail-row">
+                                            <i class="fas fa-calendar-alt text-success"></i>
+                                            <span><strong>Check-in:</strong> @booking.CheckInDate.ToString("MMM dd, yyyy")</span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <i class="fas fa-calendar-alt text-danger"></i>
+                                            <span><strong>Check-out:</strong> @booking.CheckOutDate.ToString("MMM dd, yyyy")</span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <i class="fas fa-moon text-info"></i>
+                                            <span><strong>Nights:</strong> @((booking.CheckOutDate - booking.CheckInDate).Days)</span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <i class="fas fa-users text-warning"></i>
+                                            <span><strong>Guests:</strong> @booking.NumberOfGuests</span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <i class="fas fa-clock text-secondary"></i>
+                                            <span><strong>Booked:</strong> @booking.BookingDate.ToString("MMM dd, yyyy")</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 text-md-end">
+                                    <div class="price-section">
+                                        <h4 class="text-success mb-2">@booking.TotalPrice.ToString("C")</h4>
+                                        <small class="text-muted">Total Amount</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            @if (!string.IsNullOrEmpty(booking.SpecialRequests))
+                            {
+                                <div class="mt-3">
+                                    <strong>Special Requests:</strong>
+                                    <p class="text-muted mb-0">@booking.SpecialRequests</p>
+                                </div>
+                            }
+
+                            <!-- Payment Status -->
+                            @if (booking.Payments?.Any() == true)
+                            {
+                                <div class="mt-3">
+                                    <h6>Payment Information</h6>
+                                    @foreach (var payment in booking.Payments)
+                                    {
+                                        <div class="payment-info">
+                                            <span class="badge badge-@GetPaymentStatusClass(payment.Status)">
+                                                @payment.Status
+                                            </span>
+                                            <span class="ms-2">@payment.PaymentMethod - @payment.Amount.ToString("C")</span>
+                                            @if (!string.IsNullOrEmpty(payment.TransactionId))
+                                            {
+                                                <br><small class="text-muted">Transaction: @payment.TransactionId</small>
+                                            }
+                                        </div>
+                                    }
+                                </div>
+                            }
+                        </div>
+                        <div class="card-footer">
+                            <div class="btn-group" role="group">
+                                <a asp-controller="Booking" asp-action="Details" asp-route-id="@booking.Id" 
+                                   class="btn btn-outline-primary btn-sm">
+                                    <i class="fas fa-eye"></i> View Details
+                                </a>
+                                
+                                @if (booking.Status == "Confirmed" && booking.CheckOutDate > DateTime.Now)
+                                {
+                                    <button class="btn btn-outline-danger btn-sm" 
+                                            onclick="cancelBooking(@booking.Id)">
+                                        <i class="fas fa-times"></i> Cancel
+                                    </button>
+                                }
+
+                                @if (booking.Status == "Completed" && !booking.Reviews.Any())
+                                {
+                                    <a asp-controller="Review" asp-action="Create" asp-route-bookingId="@booking.Id"
+                                       class="btn btn-outline-warning btn-sm">
+                                        <i class="fas fa-star"></i> Write Review
+                                    </a>
+                                }
+
+                                @if (booking.CheckInDate <= DateTime.Now && booking.CheckOutDate >= DateTime.Now && booking.Status == "Confirmed")
+                                {
+                                    <span class="btn btn-outline-success btn-sm">
+                                        <i class="fas fa-check"></i> Currently Staying
+                                    </span>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <!-- Pagination would go here if needed -->
+        @if (Model.Count > 10)
+        {
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                    <nav aria-label="Bookings pagination">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-12">
+                <div class="text-center py-5">
+                    <i class="fas fa-calendar-times fa-5x text-muted mb-4"></i>
+                    <h3>No Bookings Found</h3>
+                    <p class="text-muted mb-4">You haven't made any bookings yet. Start exploring our rooms and make your first booking!</p>
+                    <a asp-controller="Rooms" asp-action="Index" class="btn btn-primary btn-lg">
+                        <i class="fas fa-bed me-2"></i>Browse Rooms
+                    </a>
+                    <a asp-controller="Booking" asp-action="Search" class="btn btn-outline-primary btn-lg ms-2">
+                        <i class="fas fa-search me-2"></i>Search Availability
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<!-- Cancel Booking Modal -->
+<div class="modal fade" id="cancelBookingModal" tabindex="-1" aria-labelledby="cancelBookingModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cancelBookingModalLabel">Cancel Booking</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to cancel this booking? This action cannot be undone.</p>
+                <div class="alert alert-warning">
+                    <strong>Note:</strong> Cancellation policies may apply. Please review the terms and conditions for refund information.
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keep Booking</button>
+                <button type="button" class="btn btn-danger" id="confirmCancelBtn">Cancel Booking</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        let bookingToCancel = 0;
+
+        function cancelBooking(bookingId) {
+            bookingToCancel = bookingId;
+            var modal = new bootstrap.Modal(document.getElementById('cancelBookingModal'));
+            modal.show();
+        }
+
+        document.getElementById('confirmCancelBtn').addEventListener('click', function() {
+            if (bookingToCancel > 0) {
+                // Make AJAX call to cancel booking
+                fetch(`/Booking/Cancel/${bookingToCancel}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]').value
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        location.reload();
+                    } else {
+                        alert('Failed to cancel booking: ' + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred while canceling the booking.');
+                });
+            }
+        });
+    </script>
+}
+
+<style>
+    .booking-card {
+        transition: transform 0.2s, box-shadow 0.2s;
+        border: 1px solid rgba(0,0,0,0.125);
+    }
+    
+    .booking-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    
+    .detail-row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+    }
+    
+    .detail-row i {
+        width: 20px;
+        margin-right: 10px;
+    }
+    
+    .price-section {
+        text-align: center;
+        padding: 15px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+    }
+    
+    .payment-info {
+        margin-bottom: 5px;
+    }
+    
+    .badge-lg {
+        font-size: 0.9em;
+        padding: 0.5em 0.8em;
+    }
+    
+    .booking-details {
+        margin-top: 15px;
+    }
+    
+    .btn-group .btn {
+        margin-right: 5px;
+    }
+    
+    .card-footer {
+        background-color: #f8f9fa;
+        border-top: 1px solid rgba(0,0,0,0.125);
+    }
+</style>
+
+@functions {
+    string GetStatusClass(string status)
+    {
+        return status switch
+        {
+            "Pending" => "warning",
+            "Confirmed" => "success",
+            "Cancelled" => "danger",
+            "Completed" => "info",
+            _ => "secondary"
+        };
+    }
+    
+    string GetPaymentStatusClass(string status)
+    {
+        return status switch
+        {
+            "Completed" => "success",
+            "Pending" => "warning",
+            "Failed" => "danger",
+            "Refunded" => "info",
+            _ => "secondary"
+        };
+    }
+}

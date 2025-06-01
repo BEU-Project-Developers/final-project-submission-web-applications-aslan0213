@@ -1,0 +1,233 @@
+@model List<Room>
+@{
+    ViewData["Title"] = "Premium Rooms";
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="breadcrumb-content">
+                <div class="breadcrumb-heading">
+                    <h3>Premium Rooms</h3>
+                </div>
+                <div class="breadcrumb-text">
+                    <p>Elevated comfort with exclusive premium amenities</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card bg-dark text-white">
+                <img src="~/img/room4.jpg" class="card-img" alt="Premium Room" style="height: 400px; object-fit: cover; opacity: 0.7;">
+                <div class="card-img-overlay d-flex align-items-center justify-content-center">
+                    <div class="text-center">
+                        <h1 class="card-title display-4">Premium Rooms</h1>
+                        <p class="card-text lead">Experience elevated luxury and comfort</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Room Features -->
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <h4>Premium Room Features</h4>
+            <ul class="list-unstyled">
+                <li><i class="fa fa-check text-success"></i> Premium king-size bed with luxury bedding</li>
+                <li><i class="fa fa-check text-success"></i> Upgraded bathroom with premium toiletries</li>
+                <li><i class="fa fa-check text-success"></i> Separate sitting area with comfortable seating</li>
+                <li><i class="fa fa-check text-success"></i> Large smart TV with premium channels</li>
+                <li><i class="fa fa-check text-success"></i> High-speed Wi-Fi and work station</li>
+                <li><i class="fa fa-check text-success"></i> Mini-bar with premium selections</li>
+                <li><i class="fa fa-check text-success"></i> Coffee machine with premium blends</li>
+                <li><i class="fa fa-check text-success"></i> 24/7 room service</li>
+                <li><i class="fa fa-check text-success"></i> Blackout curtains and sound insulation</li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <h4>Premium Experience</h4>
+            <p>Our Premium rooms offer an elevated level of comfort and service that goes beyond the ordinary. These thoughtfully designed spaces feature high-end furnishings, premium amenities, and exclusive services.</p>
+            <p>Whether you're traveling for business or pleasure, our Premium rooms provide the perfect environment for relaxation and productivity, with attention to every detail that matters.</p>
+            <div class="mt-4">
+                <h5>Exclusive Premium Services:</h5>
+                <ul class="list-unstyled">
+                    <li><i class="fa fa-star text-warning"></i> Priority check-in and check-out</li>
+                    <li><i class="fa fa-star text-warning"></i> Complimentary room upgrade (when available)</li>
+                    <li><i class="fa fa-star text-warning"></i> Welcome amenities and fruits</li>
+                    <li><i class="fa fa-star text-warning"></i> Express laundry service</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Available Rooms -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <h4>Available Premium Rooms</h4>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        @if (Model?.Any() == true)
+        {
+            @foreach (var room in Model)
+            {
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 border-warning">
+                        <div class="position-relative">
+                            <img src="~/img/@room.Image" class="card-img-top" alt="Premium Room @room.RoomNumber" style="height: 280px; object-fit: cover;">
+                            <span class="badge badge-warning position-absolute" style="top: 10px; right: 10px;">PREMIUM</span>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Premium Room @room.RoomNumber</h5>
+                            <p class="card-text flex-grow-1">
+                                <strong>Capacity:</strong> @room.Capacity guests<br>
+                                <strong>Price:</strong> <span class="h5 text-warning">@room.Price.ToString("C")</span> per night<br>
+                                @if (!string.IsNullOrEmpty(room.Description))
+                                {
+                                    <span class="text-muted">@room.Description</span>
+                                }
+                            </p>
+                            
+                            @if (room.Amenities?.Any() == true)
+                            {
+                                <div class="mb-3">
+                                    <strong>Premium Amenities:</strong>
+                                    <div class="mt-1">
+                                        @foreach (var amenity in room.Amenities.Take(4))
+                                        {
+                                            <span class="badge badge-warning mr-1 mb-1">@amenity</span>
+                                        }
+                                        @if (room.Amenities.Count > 4)
+                                        {
+                                            <span class="badge badge-light">+@(room.Amenities.Count - 4) more</span>
+                                        }
+                                    </div>
+                                </div>
+                            }
+
+                            <div class="mt-auto">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="badge badge-@(room.Status ? "success" : "danger") badge-lg">
+                                        @(room.Status ? "Available" : "Unavailable")
+                                    </span>
+                                    @if (room.Status)
+                                    {
+                                        <a href="@Url.Action("Search", "Booking", new { roomType = "Premium" })" class="btn btn-warning">Book Premium</a>
+                                    }
+                                    else
+                                    {
+                                        <button class="btn btn-secondary" disabled>Not Available</button>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12">
+                <div class="alert alert-warning">
+                    <h5>No Premium Rooms Available</h5>
+                    <p>Currently, there are no premium rooms available. Please check back later or contact us for more information about our premium accommodations.</p>
+                    <a href="@Url.Action("Index", "Rooms")" class="btn btn-primary">View Other Room Types</a>
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- Premium Packages -->
+    <div class="row mt-5">
+        <div class="col-md-6 mb-4">
+            <div class="card bg-warning text-dark">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fa fa-briefcase"></i> Business Premium Package</h5>
+                    <p class="card-text">Perfect for business travelers with executive amenities and services.</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fa fa-check"></i> Business center access</li>
+                        <li><i class="fa fa-check"></i> Meeting room discounts</li>
+                        <li><i class="fa fa-check"></i> Express check-in/out</li>
+                        <li><i class="fa fa-check"></i> Complimentary breakfast</li>
+                    </ul>
+                    <a href="@Url.Action("Search", "Booking", new { roomType = "Premium" })" class="btn btn-dark">Book Business Package</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card bg-gradient text-white" style="background: linear-gradient(135deg, #ffc107 0%, #ff6b35 100%);">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fa fa-heart"></i> Romance Premium Package</h5>
+                    <p class="card-text">Special romantic amenities for couples and special occasions.</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fa fa-check"></i> Welcome champagne</li>
+                        <li><i class="fa fa-check"></i> Rose petal turndown service</li>
+                        <li><i class="fa fa-check"></i> Couples spa discounts</li>
+                        <li><i class="fa fa-check"></i> Late checkout</li>
+                    </ul>
+                    <a href="@Url.Action("Search", "Booking", new { roomType = "Premium" })" class="btn btn-light">Book Romance Package</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="card bg-dark text-white">
+                <div class="card-body text-center">
+                    <h4>Upgrade to Premium</h4>
+                    <p class="mb-3">Elevate your stay with our premium rooms and experience the difference luxury makes.</p>
+                    <a href="@Url.Action("Search", "Booking", new { roomType = "Premium" })" class="btn btn-warning btn-lg">
+                        <i class="fa fa-calendar"></i> Check Premium Availability
+                    </a>
+                    <a href="@Url.Action("Index", "Contact")" class="btn btn-outline-light btn-lg ml-2">
+                        <i class="fa fa-phone"></i> Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .badge-warning {
+        background-color: #ffc107;
+        color: #212529;
+    }
+    
+    .btn-warning {
+        background-color: #ffc107;
+        border-color: #ffc107;
+        color: #212529;
+    }
+    
+    .btn-warning:hover {
+        background-color: #e0a800;
+        border-color: #d39e00;
+        color: #212529;
+    }
+    
+    .border-warning {
+        border-color: #ffc107 !important;
+    }
+    
+    .card {
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    
+    .text-warning {
+        color: #ffc107 !important;
+    }
+</style>

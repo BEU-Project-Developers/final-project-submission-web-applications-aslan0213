@@ -1,0 +1,150 @@
+@model SearchViewModel
+@{
+    ViewData["Title"] = "Search Rooms";
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="breadcrumb-content">
+                <div class="breadcrumb-heading">
+                    <h3>Search Available Rooms</h3>
+                </div>
+                <div class="breadcrumb-text">
+                    <p>Find the perfect room for your stay</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <form asp-action="Search" method="get">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="checkIn">Check-in Date</label>
+                                    <input type="date" class="form-control" asp-for="CheckInDate" required>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="checkOut">Check-out Date</label>
+                                    <input type="date" class="form-control" asp-for="CheckOutDate" required>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="guests">Guests</label>
+                                    <select class="form-control" asp-for="NumberOfGuests">
+                                        <option value="1">1 Guest</option>
+                                        <option value="2">2 Guests</option>
+                                        <option value="3">3 Guests</option>
+                                        <option value="4">4 Guests</option>
+                                        <option value="5">5 Guests</option>
+                                        <option value="6">6+ Guests</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="roomType">Room Type</label>
+                                    <select class="form-control" asp-for="RoomType">
+                                        <option value="">Any Type</option>
+                                        <option value="Standard">Standard</option>
+                                        <option value="Deluxe">Deluxe</option>
+                                        <option value="Suite">Suite</option>
+                                        <option value="Family">Family</option>
+                                        <option value="Premium">Premium</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>&nbsp;</label>
+                                    <button type="submit" class="btn btn-primary btn-block">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @if (Model.AvailableRooms?.Any() == true)
+    {
+        <div class="row mt-4">
+            <div class="col-12">
+                <h4>Available Rooms (@Model.AvailableRooms.Count found)</h4>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            @foreach (var room in Model.AvailableRooms)
+            {
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100">
+                        <img src="~/img/@room.Image" class="card-img-top" alt="@room.Type Room" style="height: 200px; object-fit: cover;">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">@room.Type Room - @room.RoomNumber</h5>
+                            <p class="card-text flex-grow-1">
+                                <strong>Capacity:</strong> @room.Capacity guests<br>
+                                <strong>Price:</strong> @room.Price.ToString("C") per night<br>
+                                @if (!string.IsNullOrEmpty(room.Description))
+                                {
+                                    <span>@room.Description</span>
+                                }
+                            </p>
+                            @if (room.Amenities?.Any() == true)
+                            {
+                                <div class="mb-3">
+                                    <strong>Amenities:</strong>
+                                    <div class="mt-1">
+                                        @foreach (var amenity in room.Amenities)
+                                        {
+                                            <span class="badge badge-secondary mr-1">@amenity</span>
+                                        }
+                                    </div>
+                                </div>
+                            }
+                            <div class="mt-auto">
+                                <a href="@Url.Action("Book", "Booking", new { roomId = room.Id, checkIn = Model.CheckInDate?.ToString("yyyy-MM-dd"), checkOut = Model.CheckOutDate?.ToString("yyyy-MM-dd"), guests = Model.NumberOfGuests })" 
+                                   class="btn btn-primary btn-block">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else if (ViewData.ModelState.IsValid && Model.CheckInDate.HasValue)
+    {
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="alert alert-info">
+                    <h5>No rooms available</h5>
+                    <p>Sorry, no rooms match your search criteria. Please try different dates or adjust your requirements.</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<script>
+    // Set minimum date to today
+    document.addEventListener('DOMContentLoaded', function() {
+        const today = new Date().toISOString().split('T')[0];
+        document.querySelector('input[asp-for="CheckInDate"]').min = today;
+        
+        // Update checkout minimum date when checkin changes
+        document.querySelector('input[asp-for="CheckInDate"]').addEventListener('change', function() {
+            const checkIn = new Date(this.value);
+            checkIn.setDate(checkIn.getDate() + 1);
+            document.querySelector('input[asp-for="CheckOutDate"]').min = checkIn.toISOString().split('T')[0];
+        });
+    });
+</script>

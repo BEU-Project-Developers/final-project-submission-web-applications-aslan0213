@@ -1,0 +1,151 @@
+@model ReviewViewModel
+@{
+    ViewData["Title"] = "Write Review";
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="breadcrumb-content">
+                <div class="breadcrumb-heading">
+                    <h3>Write a Review</h3>
+                </div>
+                <div class="breadcrumb-text">
+                    <p>Share your experience and help future guests</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4 justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Your Stay Experience</h5>
+                </div>
+                <div class="card-body">
+                    @if (Model.Booking != null)
+                    {
+                        <div class="mb-4 p-3 bg-light rounded">
+                            <h6>Booking Details:</h6>
+                            <p class="mb-1"><strong>Room:</strong> @Model.Booking.Room.Type Room @Model.Booking.Room.RoomNumber</p>
+                            <p class="mb-1"><strong>Stay Period:</strong> @Model.Booking.CheckInDate.ToString("MMM dd, yyyy") - @Model.Booking.CheckOutDate.ToString("MMM dd, yyyy")</p>
+                            <p class="mb-0"><strong>Booking ID:</strong> #@Model.Booking.Id</p>
+                        </div>
+                    }
+
+                    <form asp-action="Submit" method="post">
+                        <input type="hidden" asp-for="BookingId" />
+                        <input type="hidden" asp-for="RoomId" />
+
+                        <div class="form-group">
+                            <label asp-for="Rating">Overall Rating</label>
+                            <div class="rating-container">
+                                <div class="star-rating">
+                                    @for (int i = 5; i >= 1; i--)
+                                    {
+                                        <input type="radio" asp-for="Rating" value="@i" id="star@i" />
+                                        <label for="star@i" class="star">&#9733;</label>
+                                    }
+                                </div>
+                            </div>
+                            <span asp-validation-for="Rating" class="text-danger"></span>
+                            <small class="form-text text-muted">Click the stars to rate your experience</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Comment">Your Review</label>
+                            <textarea class="form-control" asp-for="Comment" rows="6" 
+                                      placeholder="Share your experience... What did you like most? How was the service? Any suggestions for improvement?"></textarea>
+                            <span asp-validation-for="Comment" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="anonymous">
+                                <label class="form-check-label" for="anonymous">
+                                    Post anonymously (your name won't be displayed)
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="terms" required>
+                                <label class="form-check-label" for="terms">
+                                    I confirm that this review is based on my genuine experience and I agree to the 
+                                    <a href="#" target="_blank">Review Guidelines</a>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group text-right">
+                            <a href="@Url.Action("Index", "Home")" class="btn btn-secondary">Cancel</a>
+                            <button type="submit" class="btn btn-primary">Submit Review</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h6>Review Guidelines</h6>
+                </div>
+                <div class="card-body">
+                    <small>
+                        <ul class="list-unstyled">
+                            <li><i class="fa fa-check text-success"></i> Be honest and fair</li>
+                            <li><i class="fa fa-check text-success"></i> Focus on your experience</li>
+                            <li><i class="fa fa-check text-success"></i> Be respectful and constructive</li>
+                            <li><i class="fa fa-check text-success"></i> Avoid personal information</li>
+                            <li><i class="fa fa-check text-success"></i> One review per booking</li>
+                        </ul>
+                    </small>
+                </div>
+            </div>
+
+            <div class="card mt-3">
+                <div class="card-body text-center">
+                    <h6>Need Help?</h6>
+                    <p class="small text-muted">If you experienced any issues during your stay, please contact our guest services team.</p>
+                    <a href="@Url.Action("Index", "Contact")" class="btn btn-sm btn-outline-primary">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .star-rating {
+        direction: rtl;
+        font-size: 2rem;
+        unicode-bidi: bidi-override;
+    }
+
+    .star-rating input {
+        display: none;
+    }
+
+    .star-rating label {
+        color: #ddd;
+        cursor: pointer;
+        transition: color 0.2s;
+    }
+
+    .star-rating label:hover,
+    .star-rating label:hover ~ label,
+    .star-rating input:checked ~ label {
+        color: #ffc107;
+    }
+
+    .rating-container {
+        margin: 10px 0;
+    }
+</style>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

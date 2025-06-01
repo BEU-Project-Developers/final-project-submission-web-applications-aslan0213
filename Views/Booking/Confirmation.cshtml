@@ -1,0 +1,146 @@
+@model Booking
+@{
+    ViewData["Title"] = "Booking Confirmation";
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="breadcrumb-content">
+                <div class="breadcrumb-heading">
+                    <h3>Booking Confirmation</h3>
+                </div>
+                <div class="breadcrumb-text">
+                    <p>Your booking has been confirmed successfully!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4 justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body text-center">
+                    <div class="mb-4">
+                        <i class="fa fa-check-circle text-success" style="font-size: 4rem;"></i>
+                    </div>
+                    <h4 class="text-success">Booking Confirmed!</h4>
+                    <p class="lead">Thank you for choosing LuxeVoyage Hotel. Your reservation has been successfully processed.</p>
+                    
+                    <div class="mt-4 mb-4">
+                        <h5>Booking Reference: <span class="text-primary">#@Model.Id</span></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Booking Details</h5>
+                </div>
+                <div class="card-body">
+                    <table class="table table-borderless">
+                        <tr>
+                            <td><strong>Guest Name:</strong></td>
+                            <td>@Model.User.FullName</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Room:</strong></td>
+                            <td>@Model.Room.Type Room - @Model.Room.RoomNumber</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Check-in Date:</strong></td>
+                            <td>@Model.CheckInDate.ToString("dddd, MMMM dd, yyyy")</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Check-out Date:</strong></td>
+                            <td>@Model.CheckOutDate.ToString("dddd, MMMM dd, yyyy")</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Number of Nights:</strong></td>
+                            <td>@((Model.CheckOutDate - Model.CheckInDate).Days)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Number of Guests:</strong></td>
+                            <td>@Model.NumberOfGuests</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total Amount:</strong></td>
+                            <td><span class="h5 text-success">@Model.TotalPrice.ToString("C")</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Status:</strong></td>
+                            <td><span class="badge badge-warning">@Model.Status</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Booking Date:</strong></td>
+                            <td>@Model.BookingDate.ToString("MM/dd/yyyy HH:mm")</td>
+                        </tr>
+                    </table>
+
+                    @if (!string.IsNullOrEmpty(Model.SpecialRequests))
+                    {
+                        <div class="mt-3">
+                            <strong>Special Requests:</strong>
+                            <p class="mt-1">@Model.SpecialRequests</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5>What's Next?</h5>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <i class="fa fa-envelope text-primary"></i>
+                        <strong class="ml-2">Confirmation Email</strong>
+                        <p class="ml-4 mb-0">A confirmation email has been sent to <strong>@Model.User.Email</strong></p>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <i class="fa fa-credit-card text-info"></i>
+                        <strong class="ml-2">Payment</strong>
+                        <p class="ml-4 mb-0">Payment can be made at the hotel during check-in or online.</p>
+                        <div class="ml-4">
+                            <a href="@Url.Action("ProcessPayment", "Booking", new { bookingId = Model.Id })" class="btn btn-sm btn-primary">Pay Now</a>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <i class="fa fa-phone text-success"></i>
+                        <strong class="ml-2">Contact Us</strong>
+                        <p class="ml-4 mb-0">For any questions or changes, call us at <strong>+994 50 598 69 33</strong></p>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <i class="fa fa-map-marker text-warning"></i>
+                        <strong class="ml-2">Hotel Location</strong>
+                        <p class="ml-4 mb-0">FR99+HPM, Jafar Jabbarli, Baku, Azerbaijan</p>
+                    </div>
+
+                    <div class="mb-3">
+                        <i class="fa fa-clock text-secondary"></i>
+                        <strong class="ml-2">Check-in/out Times</strong>
+                        <p class="ml-4 mb-0">Check-in: 3:00 PM | Check-out: 11:00 AM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12 text-center">
+            <a href="@Url.Action("Index", "Home")" class="btn btn-primary">Return to Home</a>
+            <a href="@Url.Action("Search", "Booking")" class="btn btn-outline-secondary">Book Another Room</a>
+            <button onclick="window.print()" class="btn btn-outline-info">Print Confirmation</button>
+        </div>
+    </div>
+</div>

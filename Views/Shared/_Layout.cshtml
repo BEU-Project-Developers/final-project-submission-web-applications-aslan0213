@@ -18,16 +18,16 @@
     <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&amp;display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="css/flaticon.css" type="text/css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="~/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="~/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="~/css/flaticon.css" type="text/css">
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="~/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="~/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="~/css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="~/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="~/css/style.css" type="text/css">
 </head>
 
 <body>
@@ -92,10 +92,9 @@
         </ul>
     </div> *@
     <!-- Offcanvas Menu Section End -->
-
-
+    
     <!-- Header Section Begin -->
-    @* <header class="header-section">
+    <header class="header-section">
         <div class="top-nav">
             <div class="container">
                 <div class="row">
@@ -113,17 +112,26 @@
                                 <a href="#"><i class="fa fa-tripadvisor"></i></a>
                                 <a href="#"><i class="fa fa-instagram"></i></a>
                             </div> 
-                            <a href="#" class="bk-btn">Booking Now</a>
-                            <div class="language-option">
-                                <img src="img/flag.jpg" alt="">
-                                <span>EN <i class="fa fa-angle-down"></i></span>
-                                <div class="flag-dropdown">
-                                    <ul>
-                                        <li><a href="#">Zi</a></li>
-                                        <li><a href="#">Fr</a></li>
-                                    </ul>
+                            <a href="@Url.Action("Search", "Booking")" class="bk-btn">Book Now</a>
+                            
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <div class="user-menu">
+                                    <span class="user-name">Welcome, @User.FindFirst("FullName")?.Value</span>
+                                    @if (User.IsInRole("Admin"))
+                                    {
+                                        <a href="@Url.Action("Dashboard", "Admin")" class="admin-link">Admin Panel</a>
+                                    }
+                                    <a href="@Url.Action("Logout", "Account")" class="logout-btn">Logout</a>
                                 </div>
-                            </div> 
+                            }
+                            else
+                            {
+                                <div class="auth-links">
+                                    <a href="@Url.Action("Login", "Account")" class="login-btn">Login</a>
+                                    <a href="@Url.Action("Register", "Account")" class="register-btn">Register</a>
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>
@@ -134,7 +142,7 @@
                 <div class="row">
                     <div class="col-lg-2">
                         <div class="logo">
-                             <a > 
+                             <a asp-controller="Home" asp-action="Index"> 
                             <img src="img/e78837_ebac07382a63407193c81eb49a417fbb~mv2.png" alt="">
                              </a> 
                         </div>
@@ -143,31 +151,36 @@
                         <div class="nav-menu">
                             <nav class="mainmenu">
                                 <ul>
-                                    <li class="active"><a asp-controller="Home" asp-action="Index">Home</a></li>
-                                    <li><a asp-controller="Rooms" asp-action="Index">Rooms</a></li>
-                                    <li><a asp-controller="AboutUs" asp-action="Index">About Us</a></li>
-                                     <li>
-                                        <a href="pages.html">Pages</a>
+                                    <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                                    <li>
+                                        <a asp-controller="Rooms" asp-action="Index">Rooms</a>
                                         <ul class="dropdown">
-                                            <li><a href="room-details.html">Room Details</a></li>
-                                            <li><a href="blog-details.html">Blog Details</a></li>
-                                            <li><a href="#">Family Room</a></li>
-                                            <li><a href="#">Premium Room</a></li>
+                                            <li><a asp-controller="DeluxeRoom" asp-action="Index">Deluxe Rooms</a></li>
+                                            <li><a asp-controller="SuiteRoom" asp-action="Index">Suite Rooms</a></li>
+                                            <li><a asp-controller="FamilyRoom" asp-action="Index">Family Rooms</a></li>
+                                            <li><a asp-controller="PremiumRoom" asp-action="Index">Premium Rooms</a></li>
                                         </ul>
-                                    </li> 
+                                    </li>
+                                    <li><a asp-controller="Booking" asp-action="Search">Book Now</a></li>
+                                    <li><a asp-controller="AboutUs" asp-action="Index">About Us</a></li>
                                     <li><a asp-controller="Blog" asp-action="Index">News</a></li>
                                     <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
                                 </ul>
                             </nav>
-                            <div class="nav-right search-switch">
-                                <i class="icon_search"></i>
+                            <div class="nav-right">
+                                <form asp-controller="Search" asp-action="Index" method="get" class="header-search">
+                                    <input type="text" name="query" placeholder="Search rooms..." class="search-input">
+                                    <button type="submit" class="search-switch">
+                                        <i class="icon_search"></i>
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </header> *@
+    </header>
     <!-- Header End -->
 
 
@@ -255,14 +268,14 @@
     </div>
     <!-- Search model end -->
     <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/js/jquery.nice-select.min.js"></script>
+    <script src="~/js/jquery-ui.min.js"></script>
+    <script src="~/js/jquery.slicknav.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/main.js"></script>
 </body>
 
 

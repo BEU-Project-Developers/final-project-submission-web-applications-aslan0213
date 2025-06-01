@@ -1,0 +1,137 @@
+@model List<Room>
+@{
+    ViewData["Title"] = "Manage Rooms";
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="breadcrumb-content">
+                <div class="breadcrumb-heading">
+                    <h3>Manage Rooms</h3>
+                </div>
+                <div class="breadcrumb-text">
+                    <p>View and manage all hotel rooms</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="card-title mb-0">All Rooms</h5>
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#addRoomModal">
+                        <i class="fa fa-plus"></i> Add New Room
+                    </button>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Room Number</th>
+                                    <th>Type</th>
+                                    <th>Price</th>
+                                    <th>Capacity</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var room in Model)
+                                {
+                                    <tr>
+                                        <td>@room.RoomNumber</td>
+                                        <td>@room.Type</td>
+                                        <td>@room.Price.ToString("C")</td>
+                                        <td>@room.Capacity guests</td>
+                                        <td>
+                                            <span class="badge badge-@(room.Status ? "success" : "danger")">
+                                                @(room.Status ? "Available" : "Unavailable")
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-sm btn-warning" onclick="editRoom(@room.Id)">
+                                                <i class="fa fa-edit"></i> Edit
+                                            </button>
+                                            <button class="btn btn-sm btn-@(room.Status ? "danger" : "success")" 
+                                                    onclick="toggleRoomStatus(@room.Id, @room.Status.ToString().ToLower())">
+                                                @(room.Status ? "Disable" : "Enable")
+                                            </button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add Room Modal -->
+<div class="modal fade" id="addRoomModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add New Room</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <form action="@Url.Action("AddRoom", "Admin")" method="post">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="roomNumber">Room Number</label>
+                        <input type="text" class="form-control" id="roomNumber" name="RoomNumber" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="type">Room Type</label>
+                        <select class="form-control" id="type" name="Type" required>
+                            <option value="">Select Type</option>
+                            <option value="Standard">Standard</option>
+                            <option value="Deluxe">Deluxe</option>
+                            <option value="Suite">Suite</option>
+                            <option value="Family">Family</option>
+                            <option value="Premium">Premium</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price per Night</label>
+                        <input type="number" class="form-control" id="price" name="Price" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="capacity">Capacity (guests)</label>
+                        <input type="number" class="form-control" id="capacity" name="Capacity" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea class="form-control" id="description" name="Description" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Room</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleRoomStatus(roomId, currentStatus) {
+        const action = currentStatus ? 'disable' : 'enable';
+        if (confirm(`Are you sure you want to ${action} this room?`)) {
+            window.location.href = '@Url.Action("ToggleRoomStatus", "Admin")' + '?id=' + roomId;
+        }
+    }
+
+    function editRoom(roomId) {
+        // Implement edit functionality
+        alert('Edit functionality to be implemented');
+    }
+</script>

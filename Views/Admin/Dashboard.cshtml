@@ -1,0 +1,169 @@
+@model DashboardViewModel
+@{
+    ViewData["Title"] = "Admin Dashboard";
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="breadcrumb-content">
+                <div class="breadcrumb-heading">
+                    <h3>Admin Dashboard</h3>
+                </div>
+                <div class="breadcrumb-text">
+                    <p>Welcome to the admin panel. Manage your hotel operations from here.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Statistics Cards -->
+    <div class="row mt-4">
+        <div class="col-md-3">
+            <div class="card bg-primary text-white">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h3>@Model.TotalBookings</h3>
+                            <p class="mb-0">Total Bookings</p>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="fa fa-calendar fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-success text-white">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h3>@Model.TotalRevenue.ToString("C")</h3>
+                            <p class="mb-0">Total Revenue</p>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="fa fa-dollar fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-info text-white">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h3>@Model.AvailableRooms</h3>
+                            <p class="mb-0">Available Rooms</p>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="fa fa-bed fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-warning text-white">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h3>@Model.TotalUsers</h3>
+                            <p class="mb-0">Total Users</p>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="fa fa-users fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Bookings -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Recent Bookings</h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Booking ID</th>
+                                    <th>Guest Name</th>
+                                    <th>Room</th>
+                                    <th>Check-in</th>
+                                    <th>Check-out</th>
+                                    <th>Total Price</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var booking in Model.RecentBookings)
+                                {
+                                    <tr>
+                                        <td>#@booking.Id</td>
+                                        <td>@booking.User.FullName</td>
+                                        <td>@booking.Room.RoomNumber (@booking.Room.Type)</td>
+                                        <td>@booking.CheckInDate.ToString("MM/dd/yyyy")</td>
+                                        <td>@booking.CheckOutDate.ToString("MM/dd/yyyy")</td>
+                                        <td>@booking.TotalPrice.ToString("C")</td>
+                                        <td>
+                                            <span class="badge badge-@(booking.Status == "Confirmed" ? "success" : booking.Status == "Cancelled" ? "danger" : "warning")">
+                                                @booking.Status
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <a href="@Url.Action("BookingDetails", "Admin", new { id = booking.Id })" class="btn btn-sm btn-info">View</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Quick Actions</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3 mb-3">
+                            <a href="@Url.Action("ManageBookings", "Admin")" class="btn btn-primary btn-block">
+                                <i class="fa fa-calendar"></i> Manage Bookings
+                            </a>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <a href="@Url.Action("ManageRooms", "Admin")" class="btn btn-success btn-block">
+                                <i class="fa fa-bed"></i> Manage Rooms
+                            </a>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <a href="@Url.Action("ManageUsers", "Admin")" class="btn btn-info btn-block">
+                                <i class="fa fa-users"></i> Manage Users
+                            </a>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <a href="@Url.Action("ViewReports", "Admin")" class="btn btn-warning btn-block">
+                                <i class="fa fa-chart-bar"></i> View Reports
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

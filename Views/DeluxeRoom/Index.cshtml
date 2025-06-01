@@ -1,0 +1,151 @@
+@model List<Room>
+@{
+    ViewData["Title"] = "Deluxe Rooms";
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="breadcrumb-content">
+                <div class="breadcrumb-heading">
+                    <h3>Deluxe Rooms</h3>
+                </div>
+                <div class="breadcrumb-text">
+                    <p>Experience luxury and comfort in our premium deluxe accommodations</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card bg-dark text-white">
+                <img src="~/img/room1.jpg" class="card-img" alt="Deluxe Room" style="height: 400px; object-fit: cover; opacity: 0.7;">
+                <div class="card-img-overlay d-flex align-items-center justify-content-center">
+                    <div class="text-center">
+                        <h1 class="card-title display-4">Deluxe Rooms</h1>
+                        <p class="card-text lead">Sophisticated elegance meets modern comfort</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Room Features -->
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <h4>Deluxe Room Features</h4>
+            <ul class="list-unstyled">
+                <li><i class="fa fa-check text-success"></i> Spacious rooms with premium furnishing</li>
+                <li><i class="fa fa-check text-success"></i> King-size bed with luxury linens</li>
+                <li><i class="fa fa-check text-success"></i> Private bathroom with premium amenities</li>
+                <li><i class="fa fa-check text-success"></i> Flat-screen TV with cable channels</li>
+                <li><i class="fa fa-check text-success"></i> Complimentary Wi-Fi</li>
+                <li><i class="fa fa-check text-success"></i> In-room coffee and tea facilities</li>
+                <li><i class="fa fa-check text-success"></i> Air conditioning and heating</li>
+                <li><i class="fa fa-check text-success"></i> Work desk and seating area</li>
+                <li><i class="fa fa-check text-success"></i> Daily housekeeping service</li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <h4>Why Choose Deluxe?</h4>
+            <p>Our Deluxe rooms offer the perfect balance of comfort and style for the discerning traveler. Whether you're here for business or leisure, these thoughtfully designed spaces provide everything you need for a memorable stay.</p>
+            <p>Each room features contemporary décor, premium bedding, and modern amenities to ensure your complete satisfaction. The spacious layout and elegant furnishings create an atmosphere of relaxation and sophistication.</p>
+        </div>
+    </div>
+
+    <!-- Available Rooms -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <h4>Available Deluxe Rooms</h4>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        @if (Model?.Any() == true)
+        {
+            @foreach (var room in Model)
+            {
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100">
+                        <img src="~/img/@room.Image" class="card-img-top" alt="Deluxe Room @room.RoomNumber" style="height: 250px; object-fit: cover;">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Deluxe Room @room.RoomNumber</h5>
+                            <p class="card-text flex-grow-1">
+                                <strong>Capacity:</strong> @room.Capacity guests<br>
+                                <strong>Price:</strong> <span class="h5 text-success">@room.Price.ToString("C")</span> per night<br>
+                                @if (!string.IsNullOrEmpty(room.Description))
+                                {
+                                    <span class="text-muted">@room.Description</span>
+                                }
+                            </p>
+                            
+                            @if (room.Amenities?.Any() == true)
+                            {
+                                <div class="mb-3">
+                                    <strong>Amenities:</strong>
+                                    <div class="mt-1">
+                                        @foreach (var amenity in room.Amenities.Take(4))
+                                        {
+                                            <span class="badge badge-secondary mr-1 mb-1">@amenity</span>
+                                        }
+                                        @if (room.Amenities.Count > 4)
+                                        {
+                                            <span class="badge badge-light">+@(room.Amenities.Count - 4) more</span>
+                                        }
+                                    </div>
+                                </div>
+                            }
+
+                            <div class="mt-auto">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="badge badge-@(room.Status ? "success" : "danger")">
+                                        @(room.Status ? "Available" : "Unavailable")
+                                    </span>
+                                    @if (room.Status)
+                                    {
+                                        <a href="@Url.Action("Search", "Booking", new { roomType = "Deluxe" })" class="btn btn-primary">Book Now</a>
+                                    }
+                                    else
+                                    {
+                                        <button class="btn btn-secondary" disabled>Not Available</button>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12">
+                <div class="alert alert-info">
+                    <h5>No Deluxe Rooms Available</h5>
+                    <p>Currently, there are no deluxe rooms available. Please check back later or contact us for more information.</p>
+                    <a href="@Url.Action("Index", "Rooms")" class="btn btn-primary">View Other Room Types</a>
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- Call to Action -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="card bg-primary text-white">
+                <div class="card-body text-center">
+                    <h4>Ready to Experience Luxury?</h4>
+                    <p class="mb-3">Book your deluxe room today and enjoy premium comfort during your stay.</p>
+                    <a href="@Url.Action("Search", "Booking", new { roomType = "Deluxe" })" class="btn btn-light btn-lg">
+                        <i class="fa fa-calendar"></i> Check Availability
+                    </a>
+                    <a href="@Url.Action("Index", "Contact")" class="btn btn-outline-light btn-lg ml-2">
+                        <i class="fa fa-phone"></i> Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

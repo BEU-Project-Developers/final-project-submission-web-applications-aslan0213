@@ -1,0 +1,197 @@
+@model List<Room>
+@{
+    ViewData["Title"] = "Suite Rooms";
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="breadcrumb-content">
+                <div class="breadcrumb-heading">
+                    <h3>Suite Rooms</h3>
+                </div>
+                <div class="breadcrumb-text">
+                    <p>Indulge in ultimate luxury with our premium suite accommodations</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card bg-dark text-white">
+                <img src="~/img/room2.jpg" class="card-img" alt="Suite Room" style="height: 400px; object-fit: cover; opacity: 0.7;">
+                <div class="card-img-overlay d-flex align-items-center justify-content-center">
+                    <div class="text-center">
+                        <h1 class="card-title display-4">Executive Suites</h1>
+                        <p class="card-text lead">Where luxury meets exceptional service</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Room Features -->
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <h4>Suite Features</h4>
+            <ul class="list-unstyled">
+                <li><i class="fa fa-check text-success"></i> Separate living and bedroom areas</li>
+                <li><i class="fa fa-check text-success"></i> Premium king-size bed with luxury bedding</li>
+                <li><i class="fa fa-check text-success"></i> Spacious marble bathroom with bathtub</li>
+                <li><i class="fa fa-check text-success"></i> Living room with sofa and dining table</li>
+                <li><i class="fa fa-check text-success"></i> Multiple flat-screen TVs</li>
+                <li><i class="fa fa-check text-success"></i> Mini-bar and kitchenette</li>
+                <li><i class="fa fa-check text-success"></i> High-speed Wi-Fi</li>
+                <li><i class="fa fa-check text-success"></i> Executive work area</li>
+                <li><i class="fa fa-check text-success"></i> VIP concierge service</li>
+                <li><i class="fa fa-check text-success"></i> Complimentary breakfast</li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <h4>The Suite Experience</h4>
+            <p>Our Executive Suites redefine luxury accommodation with spacious layouts that seamlessly blend comfort with sophistication. Perfect for extended stays, business travelers, or those seeking the ultimate in hotel luxury.</p>
+            <p>Each suite features a separate living area, premium amenities, and personalized service that ensures your stay exceeds expectations. Enjoy panoramic city views and exclusive access to premium hotel services.</p>
+            <div class="mt-4">
+                <h5>Exclusive Benefits:</h5>
+                <ul class="list-unstyled">
+                    <li><i class="fa fa-star text-warning"></i> Priority check-in/check-out</li>
+                    <li><i class="fa fa-star text-warning"></i> Complimentary airport transfers</li>
+                    <li><i class="fa fa-star text-warning"></i> Access to executive lounge</li>
+                    <li><i class="fa fa-star text-warning"></i> Personalized concierge service</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Available Rooms -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <h4>Available Executive Suites</h4>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        @if (Model?.Any() == true)
+        {
+            @foreach (var room in Model)
+            {
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100 border-warning">
+                        <div class="position-relative">
+                            <img src="~/img/@room.Image" class="card-img-top" alt="Suite Room @room.RoomNumber" style="height: 280px; object-fit: cover;">
+                            <span class="badge badge-warning position-absolute" style="top: 10px; right: 10px;">PREMIUM</span>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Executive Suite @room.RoomNumber</h5>
+                            <p class="card-text flex-grow-1">
+                                <strong>Capacity:</strong> @room.Capacity guests<br>
+                                <strong>Price:</strong> <span class="h5 text-warning">@room.Price.ToString("C")</span> per night<br>
+                                @if (!string.IsNullOrEmpty(room.Description))
+                                {
+                                    <span class="text-muted">@room.Description</span>
+                                }
+                            </p>
+                            
+                            @if (room.Amenities?.Any() == true)
+                            {
+                                <div class="mb-3">
+                                    <strong>Premium Amenities:</strong>
+                                    <div class="mt-1">
+                                        @foreach (var amenity in room.Amenities.Take(5))
+                                        {
+                                            <span class="badge badge-warning mr-1 mb-1">@amenity</span>
+                                        }
+                                        @if (room.Amenities.Count > 5)
+                                        {
+                                            <span class="badge badge-light">+@(room.Amenities.Count - 5) more</span>
+                                        }
+                                    </div>
+                                </div>
+                            }
+
+                            <div class="mt-auto">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="badge badge-@(room.Status ? "success" : "danger") badge-lg">
+                                        @(room.Status ? "Available" : "Unavailable")
+                                    </span>
+                                    @if (room.Status)
+                                    {
+                                        <a href="@Url.Action("Search", "Booking", new { roomType = "Suite" })" class="btn btn-warning">Book Suite</a>
+                                    }
+                                    else
+                                    {
+                                        <button class="btn btn-secondary" disabled>Not Available</button>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12">
+                <div class="alert alert-warning">
+                    <h5>No Suites Available</h5>
+                    <p>Currently, there are no executive suites available. Please check back later or contact us for more information about our premium accommodations.</p>
+                    <a href="@Url.Action("Index", "Rooms")" class="btn btn-primary">View Other Room Types</a>
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- Special Offers -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="card bg-gradient" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                <div class="card-body text-white text-center">
+                    <h4>Exclusive Suite Package</h4>
+                    <p class="mb-3">Book a 3-night stay in our Executive Suite and enjoy special perks including spa credits, dining vouchers, and more.</p>
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="row">
+                                <div class="col-md-4 mb-2">
+                                    <i class="fa fa-spa fa-2x"></i>
+                                    <p class="mt-2">Spa Credits</p>
+                                </div>
+                                <div class="col-md-4 mb-2">
+                                    <i class="fa fa-utensils fa-2x"></i>
+                                    <p class="mt-2">Dining Vouchers</p>
+                                </div>
+                                <div class="col-md-4 mb-2">
+                                    <i class="fa fa-car fa-2x"></i>
+                                    <p class="mt-2">Airport Transfer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="@Url.Action("Search", "Booking", new { roomType = "Suite" })" class="btn btn-light btn-lg">
+                        <i class="fa fa-calendar"></i> Book Suite Package
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card bg-dark text-white">
+                <div class="card-body text-center">
+                    <h4>Experience Ultimate Luxury</h4>
+                    <p class="mb-3">Elevate your stay with our premium suite accommodations and personalized service.</p>
+                    <a href="@Url.Action("Search", "Booking", new { roomType = "Suite" })" class="btn btn-warning btn-lg">
+                        <i class="fa fa-calendar"></i> Check Suite Availability
+                    </a>
+                    <a href="@Url.Action("Index", "Contact")" class="btn btn-outline-light btn-lg ml-2">
+                        <i class="fa fa-concierge-bell"></i> Contact Concierge
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,380 @@
+@model HotelManagementSystem.Models.SearchViewModel
+
+@{
+    ViewData["Title"] = "Search Rooms - LuxeVoyage";
+}
+
+<section class="breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-text">
+                    <h2>Search Rooms</h2>
+                    <div class="bt-option">
+                        <a href="/">Home</a>
+                        <span>Search</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="rooms-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="room-sidebar">
+                    <h4>Search Filters</h4>
+                    <form method="get" action="/Search">
+                        <div class="search-item">
+                            <label for="keyword">Keyword:</label>
+                            <input type="text" id="keyword" name="keyword" value="@Model.Keyword" 
+                                   placeholder="Room number, type..." class="form-control">
+                        </div>
+                        
+                        <div class="search-item">
+                            <label for="roomType">Room Type:</label>
+                            <select id="roomType" name="roomType" class="form-control">
+                                <option value="">All Types</option>                                @foreach (var type in Model.AvailableRoomTypes)
+                                {
+                                    <option value="@type" selected="@(Model.RoomType == type)">@type</option>
+                                }
+                            </select>
+                        </div>
+                        
+                        <div class="search-item">
+                            <label for="minPrice">Min Price:</label>
+                            <input type="number" id="minPrice" name="minPrice" value="@Model.MinPrice" 
+                                   placeholder="0" class="form-control" step="0.01">
+                        </div>
+                        
+                        <div class="search-item">
+                            <label for="maxPrice">Max Price:</label>
+                            <input type="number" id="maxPrice" name="maxPrice" value="@Model.MaxPrice" 
+                                   placeholder="1000" class="form-control" step="0.01">
+                        </div>
+                        
+                        <div class="search-item">
+                            <label for="guests">Number of Guests:</label>
+                            <input type="number" id="guests" name="guests" value="@Model.Guests" 
+                                   min="1" max="10" class="form-control">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block mt-3">Search</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="col-lg-9">
+                <div class="search-results">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h3>Search Results (@Model.TotalResults rooms found)</h3>
+                            @if (!string.IsNullOrEmpty(Model.Keyword))
+                            {
+                                <p>Showing results for: "<strong>@Model.Keyword</strong>"</p>
+                            }
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        @if (Model.Rooms != null && Model.Rooms.Any())
+                        {
+                            @foreach (var room in Model.Rooms)
+                            {
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="room-item">
+                                        <img src="@room.Image" alt="@room.Type Room">
+                                        <div class="ri-text">
+                                            <h4>@room.Name</h4>
+                                            <h3>$@room.Price<span>/night</span></h3>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="r-o">Type:</td>
+                                                        <td>@room.Type</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="r-o">Capacity:</td>
+                                                        <td>@room.Capacity guests</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="r-o">Room:</td>
+                                                        <td>@room.RoomNumber</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="r-o">Status:</td>
+                                                        <td>@(room.IsAvailable ? "Available" : "Booked")</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            @if (room.IsAvailable)
+                                            {
+                                                <a href="/Booking/Book?roomId=@room.Id" class="primary-btn">Book Now</a>
+                                            }
+                                            else
+                                            {
+                                                <span class="btn btn-secondary disabled">Not Available</span>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <div class="col-lg-12">
+                                <div class="no-results">
+                                    <h4>No rooms found matching your criteria.</h4>
+                                    <p>Please try adjusting your search filters.</p>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    
+                    @if (Model.TotalPages > 1)
+                    {
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="room-pagination">
+                                    @for (int i = 1; i <= Model.TotalPages; i++)
+                                    {
+                                        @if (i == Model.CurrentPage)
+                                        {
+                                            <span class="current">@i</span>
+                                        }
+                                        else
+                                        {
+                                            <a href="/Search?keyword=@Model.Keyword&roomType=@Model.RoomType&minPrice=@Model.MinPrice&maxPrice=@Model.MaxPrice&guests=@Model.Guests&page=@i">@i</a>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .room-sidebar {
+        background: #f8f9fa;
+        padding: 30px;
+        border-radius: 5px;
+        margin-bottom: 30px;
+    }
+    
+    .room-sidebar h4 {
+        margin-bottom: 30px;
+        font-weight: 600;
+        color: #333;
+    }
+    
+    .search-item {
+        margin-bottom: 20px;
+    }
+    
+    .search-item label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 500;
+        color: #555;
+    }
+    
+    .form-control {
+        width: 100%;
+        padding: 10px 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+    
+    .form-control:focus {
+        outline: none;
+        border-color: #dfa974;
+        box-shadow: 0 0 5px rgba(223, 169, 116, 0.3);
+    }
+    
+    .btn-primary {
+        background-color: #dfa974;
+        border-color: #dfa974;
+        color: white;
+        padding: 12px 0;
+        border-radius: 4px;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 1px;
+        transition: all 0.3s;
+    }
+    
+    .btn-primary:hover {
+        background-color: #c8956d;
+        border-color: #c8956d;
+    }
+    
+    .search-results h3 {
+        margin-bottom: 30px;
+        color: #333;
+    }
+    
+    .room-item {
+        margin-bottom: 30px;
+        border: 1px solid #eee;
+        border-radius: 5px;
+        overflow: hidden;
+        transition: transform 0.3s;
+    }
+    
+    .room-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .room-item img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    
+    .ri-text {
+        padding: 20px;
+    }
+    
+    .ri-text h4 {
+        margin-bottom: 10px;
+        color: #333;
+    }
+    
+    .ri-text h3 {
+        color: #dfa974;
+        margin-bottom: 15px;
+    }
+    
+    .ri-text h3 span {
+        font-size: 14px;
+        color: #666;
+    }
+    
+    .ri-text table {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .ri-text table td {
+        padding: 5px 0;
+        border-bottom: 1px solid #f1f1f1;
+    }
+    
+    .r-o {
+        font-weight: 600;
+        color: #333;
+        width: 40%;
+    }
+    
+    .primary-btn {
+        background-color: #dfa974;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        text-decoration: none;
+        display: inline-block;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 1px;
+        transition: all 0.3s;
+    }
+    
+    .primary-btn:hover {
+        background-color: #c8956d;
+        color: white;
+        text-decoration: none;
+    }
+    
+    .no-results {
+        text-align: center;
+        padding: 60px 20px;
+        background: #f8f9fa;
+        border-radius: 5px;
+    }
+    
+    .no-results h4 {
+        color: #666;
+        margin-bottom: 10px;
+    }
+    
+    .room-pagination {
+        text-align: center;
+        margin-top: 40px;
+    }
+    
+    .room-pagination a,
+    .room-pagination span {
+        display: inline-block;
+        padding: 10px 15px;
+        margin: 0 5px;
+        border: 1px solid #ddd;
+        color: #333;
+        text-decoration: none;
+        border-radius: 4px;
+    }
+    
+    .room-pagination a:hover {
+        background-color: #dfa974;
+        color: white;
+        border-color: #dfa974;
+    }
+    
+    .room-pagination .current {
+        background-color: #dfa974;
+        color: white;
+        border-color: #dfa974;
+    }
+    
+    .breadcrumb-section {
+        background: url('/img/breadcrumb-bg.jpg') center center/cover;
+        padding: 120px 0 80px;
+        position: relative;
+    }
+    
+    .breadcrumb-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+    }
+    
+    .breadcrumb-text {
+        text-align: center;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .breadcrumb-text h2 {
+        color: white;
+        font-size: 48px;
+        margin-bottom: 20px;
+    }
+    
+    .bt-option a {
+        color: #dfa974;
+        text-decoration: none;
+    }
+    
+    .bt-option span {
+        color: white;
+        margin-left: 10px;
+    }
+    
+    .bt-option a::after {
+        content: ' /';
+        color: white;
+        margin-left: 10px;
+    }
+</style>

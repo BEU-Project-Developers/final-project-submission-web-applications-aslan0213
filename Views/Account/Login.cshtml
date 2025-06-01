@@ -1,4 +1,7 @@
-﻿@model LoginViewModel
+﻿@{
+    Layout = null;
+}
+@model LoginViewModel
 
 <!DOCTYPE html>
 <html>
@@ -73,18 +76,31 @@
 <body>
     <div class="login-container">
         <h2>Login to LuxeVoyage</h2>
+        
+        @if (TempData["Success"] != null)
+        {
+            <div class="success-message" style="background-color: #d4edda; color: #155724; padding: 10px; border-radius: 5px; margin-bottom: 20px;">
+                @TempData["Success"]
+            </div>
+        }
+        
         @using (Html.BeginForm())
         {
+            @Html.AntiForgeryToken()
             @Html.ValidationSummary(true, "", new { @class = "error" })
             <div class="form-group">
                 @Html.LabelFor(m => m.Email)
-                @Html.TextBoxFor(m => m.Email, new { @type = "email", @placeholder = "Enter your email" })
+                @Html.TextBoxFor(m => m.Email, new { @type = "email", @placeholder = "Enter your email", @class = "form-control" })
                 @Html.ValidationMessageFor(m => m.Email, "", new { @class = "error" })
             </div>
             <div class="form-group">
                 @Html.LabelFor(m => m.Password)
-                @Html.PasswordFor(m => m.Password, new { @placeholder = "Enter your password" })
+                @Html.PasswordFor(m => m.Password, new { @placeholder = "Enter your password", @class = "form-control" })
                 @Html.ValidationMessageFor(m => m.Password, "", new { @class = "error" })
+            </div>
+            <div class="form-group">
+                @Html.CheckBoxFor(m => m.RememberMe)
+                @Html.LabelFor(m => m.RememberMe, "Remember me", new { style = "display: inline; margin-left: 5px;" })
             </div>
             <button type="submit" class="btn">Login</button>
             <p style="margin-top: 20px;">

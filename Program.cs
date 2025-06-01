@@ -13,6 +13,7 @@ builder.Services.AddDbContext<HotelDbContext>(options =>
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IBookingService, BookingService>();
 builder.Services.AddScoped<IPaymentService, PaymentService>();
+builder.Services.AddScoped<IEmailService, EmailService>();
 
 // Add session configuration
 builder.Services.AddDistributedMemoryCache();

@@ -1,0 +1,235 @@
+@model List<HotelManagementSystem.Models.ContactMessage>
+@{
+    ViewData["Title"] = "Contact Messages";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid mt-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h4 class="mb-0">
+                        <i class="fa fa-envelope"></i> Contact Messages
+                        @if (ViewBag.UnreadCount > 0)
+                        {
+                            <span class="badge badge-danger ms-2">@ViewBag.UnreadCount unread</span>
+                        }
+                    </h4>
+                    <div class="btn-group" role="group">
+                        <a href="@Url.Action("ContactMessages")" class="btn btn-outline-primary @(ViewBag.IsReadFilter == null ? "active" : "")">
+                            All (@ViewBag.TotalMessages)
+                        </a>
+                        <a href="@Url.Action("ContactMessages", new { isRead = false })" class="btn btn-outline-warning @(ViewBag.IsReadFilter == false ? "active" : "")">
+                            Unread (@ViewBag.UnreadCount)
+                        </a>
+                        <a href="@Url.Action("ContactMessages", new { isRead = true })" class="btn btn-outline-success @(ViewBag.IsReadFilter == true ? "active" : "")">
+                            Read (@(ViewBag.TotalMessages - ViewBag.UnreadCount))
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    @if (TempData["SuccessMessage"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            @TempData["SuccessMessage"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    }
+
+                    @if (Model.Any())
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Status</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Subject</th>
+                                        <th>Message Preview</th>
+                                        <th>Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var message in Model)
+                                    {
+                                        <tr class="@(!message.IsRead ? "table-warning" : "")">
+                                            <td>
+                                                @if (message.IsRead)
+                                                {
+                                                    <span class="badge bg-success">
+                                                        <i class="fa fa-check"></i> Read
+                                                    </span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge bg-warning">
+                                                        <i class="fa fa-envelope"></i> Unread
+                                                    </span>
+                                                }
+                                            </td>
+                                            <td>
+                                                <strong>@message.Name</strong>
+                                                @if (!string.IsNullOrEmpty(message.PhoneNumber))
+                                                {
+                                                    <br><small class="text-muted">@message.PhoneNumber</small>
+                                                }
+                                            </td>
+                                            <td>
+                                                <a href="mailto:@message.Email" class="text-decoration-none">
+                                                    @message.Email
+                                                </a>
+                                            </td>
+                                            <td>
+                                                @if (!string.IsNullOrEmpty(message.Subject))
+                                                {
+                                                    <span>@message.Subject</span>
+                                                }
+                                                else
+                                                {
+                                                    <em class="text-muted">No subject</em>
+                                                }
+                                            </td>
+                                            <td>
+                                                <div class="message-preview">
+                                                    @(message.Message.Length > 100 ? message.Message.Substring(0, 100) + "..." : message.Message)
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <small>
+                                                    @message.CreatedAt.ToString("MMM dd, yyyy")
+                                                    <br>
+                                                    @message.CreatedAt.ToString("HH:mm")
+                                                </small>
+                                                @if (message.ReadAt.HasValue)
+                                                {
+                                                    <br><small class="text-success">Read: @message.ReadAt.Value.ToString("MMM dd, HH:mm")</small>
+                                                }
+                                            </td>
+                                            <td>
+                                                <div class="btn-group btn-group-sm" role="group">
+                                                    <a href="@Url.Action("ContactMessageDetails", new { id = message.Id })" 
+                                                       class="btn btn-outline-primary" title="View Details">
+                                                        <i class="fa fa-eye"></i>
+                                                    </a>
+                                                    @if (message.IsRead)
+                                                    {
+                                                        <button type="button" class="btn btn-outline-warning mark-unread-btn" 
+                                                                data-id="@message.Id" title="Mark as Unread">
+                                                            <i class="fa fa-envelope"></i>
+                                                        </button>
+                                                    }
+                                                    else
+                                                    {
+                                                        <button type="button" class="btn btn-outline-success mark-read-btn" 
+                                                                data-id="@message.Id" title="Mark as Read">
+                                                            <i class="fa fa-check"></i>
+                                                        </button>
+                                                    }
+                                                    <button type="button" class="btn btn-outline-danger delete-btn" 
+                                                            data-id="@message.Id" title="Delete">
+                                                        <i class="fa fa-trash"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Pagination -->
+                        @if (ViewBag.TotalPages > 1)
+                        {
+                            <nav aria-label="Contact messages pagination">
+                                <ul class="pagination justify-content-center">
+                                    @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                                    {
+                                        <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                                            <a class="page-link" href="@Url.Action("ContactMessages", new { page = i, isRead = ViewBag.IsReadFilter })">
+                                                @i
+                                            </a>
+                                        </li>
+                                    }
+                                </ul>
+                            </nav>
+                        }
+                    }
+                    else
+                    {
+                        <div class="text-center py-4">
+                            <i class="fa fa-envelope-o fa-3x text-muted mb-3"></i>
+                            <h5 class="text-muted">No contact messages found</h5>
+                            <p class="text-muted">When customers send messages through the contact form, they will appear here.</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Mark as read functionality
+            $('.mark-read-btn').on('click', function() {
+                var messageId = $(this).data('id');
+                var button = $(this);
+                
+                $.post('@Url.Action("MarkAsRead")', { id: messageId })
+                    .done(function(response) {
+                        if (response.success) {
+                            location.reload();
+                        }
+                    });
+            });
+            
+            // Mark as unread functionality
+            $('.mark-unread-btn').on('click', function() {
+                var messageId = $(this).data('id');
+                var button = $(this);
+                
+                $.post('@Url.Action("MarkAsUnread")', { id: messageId })
+                    .done(function(response) {
+                        if (response.success) {
+                            location.reload();
+                        }
+                    });
+            });
+            
+            // Delete functionality
+            $('.delete-btn').on('click', function() {
+                var messageId = $(this).data('id');
+                
+                if (confirm('Are you sure you want to delete this message?')) {
+                    $.post('@Url.Action("DeleteContactMessage")', { id: messageId })
+                        .done(function(response) {
+                            if (response.success) {
+                                location.reload();
+                            }
+                        });
+                }
+            });
+        });
+    </script>
+}
+
+<style>
+    .message-preview {
+        max-width: 200px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .table-warning {
+        --bs-table-bg: #fff3cd;
+    }
+    
+    .btn-group-sm .btn {
+        padding: 0.25rem 0.4rem;
+    }
+</style>

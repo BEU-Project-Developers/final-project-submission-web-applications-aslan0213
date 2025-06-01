@@ -378,5 +378,117 @@ namespace HotelManagementSystem.Controllers
                 { "OccupancyRate", Math.Round(occupancyRate, 1) }
             };
         }
+
+        // Contact Messages Management
+        public async Task<IActionResult> ContactMessages(int page = 1, bool? isRead = null)
+        {
+            var query = _context.ContactMessages.AsQueryable();
+            
+            if (isRead.HasValue)
+            {
+                query = query.Where(cm => cm.IsRead == isRead.Value);
+            }
+            
+            var totalMessages = await query.CountAsync();
+            var pageSize = 10;
+            var totalPages = (int)Math.Ceiling(totalMessages / (double)pageSize);
+            
+            var messages = await query
+                .OrderByDescending(cm => cm.CreatedAt)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+            
+            ViewBag.CurrentPage = page;
+            ViewBag.TotalPages = totalPages;
+            ViewBag.IsReadFilter = isRead;
+            ViewBag.TotalMessages = totalMessages;
+            ViewBag.UnreadCount = await _context.ContactMessages.CountAsync(cm => !cm.IsRead);
+            
+            return View(messages);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ContactMessageDetails(int id)
+        {
+            var message = await _context.ContactMessages.FindAsync(id);
+            if (message == null)
+            {
+                return NotFound();
+            }
+            
+            // Mark as read if not already read
+            if (!message.IsRead)
+            {
+                message.IsRead = true;
+                message.ReadAt = DateTime.Now;
+                await _context.SaveChangesAsync();
+            }
+            
+            return View(message);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddAdminNotes(int id, string adminNotes)
+        {
+            var message = await _context.ContactMessages.FindAsync(id);
+            if (message == null)
+            {
+                return NotFound();
+            }
+            
+            message.AdminNotes = adminNotes;
+            await _context.SaveChangesAsync();
+            
+            TempData["SuccessMessage"] = "Admin notes updated successfully.";
+            return RedirectToAction("ContactMessageDetails", new { id });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> MarkAsRead(int id)
+        {
+            var message = await _context.ContactMessages.FindAsync(id);
+            if (message == null)
+            {
+                return Json(new { success = false, message = "Message not found" });
+            }
+            
+            message.IsRead = true;
+            message.ReadAt = DateTime.Now;
+            await _context.SaveChangesAsync();
+            
+            return Json(new { success = true });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> MarkAsUnread(int id)
+        {
+            var message = await _context.ContactMessages.FindAsync(id);
+            if (message == null)
+            {
+                return Json(new { success = false, message = "Message not found" });
+            }
+            
+            message.IsRead = false;
+            message.ReadAt = null;
+            await _context.SaveChangesAsync();
+            
+            return Json(new { success = true });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteContactMessage(int id)
+        {
+            var message = await _context.ContactMessages.FindAsync(id);
+            if (message == null)
+            {
+                return Json(new { success = false, message = "Message not found" });
+            }
+            
+            _context.ContactMessages.Remove(message);
+            await _context.SaveChangesAsync();
+            
+            return Json(new { success = true });
+        }
     }
 }

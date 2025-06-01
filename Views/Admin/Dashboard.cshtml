@@ -141,24 +141,40 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-3 mb-3">
-                            <a href="@Url.Action("ManageBookings", "Admin")" class="btn btn-primary btn-block">
-                                <i class="fa fa-calendar"></i> Manage Bookings
+                        <div class="col-md-2">
+                            <a href="@Url.Action("Bookings")" class="btn btn-outline-primary btn-block">
+                                <i class="fa fa-calendar"></i><br>
+                                Manage Bookings
                             </a>
                         </div>
-                        <div class="col-md-3 mb-3">
-                            <a href="@Url.Action("ManageRooms", "Admin")" class="btn btn-success btn-block">
-                                <i class="fa fa-bed"></i> Manage Rooms
+                        <div class="col-md-2">
+                            <a href="@Url.Action("Rooms")" class="btn btn-outline-success btn-block">
+                                <i class="fa fa-bed"></i><br>
+                                Manage Rooms
                             </a>
                         </div>
-                        <div class="col-md-3 mb-3">
-                            <a href="@Url.Action("ManageUsers", "Admin")" class="btn btn-info btn-block">
-                                <i class="fa fa-users"></i> Manage Users
+                        <div class="col-md-2">
+                            <a href="@Url.Action("Users")" class="btn btn-outline-info btn-block">
+                                <i class="fa fa-users"></i><br>
+                                Manage Users
                             </a>
                         </div>
-                        <div class="col-md-3 mb-3">
-                            <a href="@Url.Action("ViewReports", "Admin")" class="btn btn-warning btn-block">
-                                <i class="fa fa-chart-bar"></i> View Reports
+                        <div class="col-md-2">
+                            <a href="@Url.Action("ContactMessages")" class="btn btn-outline-warning btn-block">
+                                <i class="fa fa-envelope"></i><br>
+                                Contact Messages
+                            </a>
+                        </div>
+                        <div class="col-md-2">
+                            <a href="@Url.Action("Payments")" class="btn btn-outline-secondary btn-block">
+                                <i class="fa fa-credit-card"></i><br>
+                                View Payments
+                            </a>
+                        </div>
+                        <div class="col-md-2">
+                            <a href="@Url.Action("ViewReports")" class="btn btn-outline-dark btn-block">
+                                <i class="fa fa-chart-bar"></i><br>
+                                View Reports
                             </a>
                         </div>
                     </div>

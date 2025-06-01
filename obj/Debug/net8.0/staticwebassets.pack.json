@@ -245,8 +245,24 @@
       "PackagePath": "staticwebassets\\img\\blog\\blog-wide.jpg"
     },
     {
+      "Id": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\deluxe.jpg",
+      "PackagePath": "staticwebassets\\img\\deluxe.jpg"
+    },
+    {
+      "Id": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\deluxe101.jpeg",
+      "PackagePath": "staticwebassets\\img\\deluxe101.jpeg"
+    },
+    {
       "Id": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\e78837_ebac07382a63407193c81eb49a417fbb~mv2.png",
       "PackagePath": "staticwebassets\\img\\e78837_ebac07382a63407193c81eb49a417fbb~mv2.png"
+    },
+    {
+      "Id": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\family.jpg",
+      "PackagePath": "staticwebassets\\img\\family.jpg"
+    },
+    {
+      "Id": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\family201.jpg",
+      "PackagePath": "staticwebassets\\img\\family201.jpg"
     },
     {
       "Id": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\flag.jpg",
@@ -291,6 +307,14 @@
     {
       "Id": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\play.png",
       "PackagePath": "staticwebassets\\img\\play.png"
+    },
+    {
+      "Id": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\premium.jpg",
+      "PackagePath": "staticwebassets\\img\\premium.jpg"
+    },
+    {
+      "Id": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\premium301.avif",
+      "PackagePath": "staticwebassets\\img\\premium301.avif"
     },
     {
       "Id": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\room\\avatar\\avatar-1.jpg",
@@ -343,6 +367,14 @@
     {
       "Id": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\room\\room-details.jpg",
       "PackagePath": "staticwebassets\\img\\room\\room-details.jpg"
+    },
+    {
+      "Id": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\suit.jpg",
+      "PackagePath": "staticwebassets\\img\\suit.jpg"
+    },
+    {
+      "Id": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\suit102.jpg",
+      "PackagePath": "staticwebassets\\img\\suit102.jpg"
     },
     {
       "Id": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\testimonial-logo.png",

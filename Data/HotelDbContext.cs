@@ -7,14 +7,13 @@ namespace HotelManagementSystem.Data
     {
         public HotelDbContext(DbContextOptions<HotelDbContext> options) : base(options)
         {
-        }
-
-        public DbSet<User> Users { get; set; }
+        }        public DbSet<User> Users { get; set; }
         public DbSet<Hotel> Hotels { get; set; }
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Booking> Bookings { get; set; }
         public DbSet<Payment> Payments { get; set; }
         public DbSet<Review> Reviews { get; set; }
+        public DbSet<ContactMessage> ContactMessages { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -93,8 +92,21 @@ namespace HotelManagementSystem.Data
                     .OnDelete(DeleteBehavior.NoAction);
                 entity.HasOne(e => e.Booking)
                     .WithMany(e => e.Reviews)
-                    .HasForeignKey(e => e.BookingId)
-                    .OnDelete(DeleteBehavior.NoAction);
+                    .HasForeignKey(e => e.BookingId)                    .OnDelete(DeleteBehavior.NoAction);
+            });
+
+            // ContactMessage configurations
+            modelBuilder.Entity<ContactMessage>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Name).IsRequired().HasMaxLength(100);
+                entity.Property(e => e.Email).IsRequired().HasMaxLength(255);
+                entity.Property(e => e.PhoneNumber).HasMaxLength(20);
+                entity.Property(e => e.Message).IsRequired().HasMaxLength(1000);
+                entity.Property(e => e.Subject).HasMaxLength(100);
+                entity.Property(e => e.CreatedAt).HasDefaultValueSql("GETDATE()");
+                entity.Property(e => e.IsRead).HasDefaultValue(false);
+                entity.Property(e => e.AdminNotes).HasMaxLength(500);
             });
 
             // Seed data

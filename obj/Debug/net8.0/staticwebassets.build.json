@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "FrUK6b1OePcaItu2aSEY/JGT79IkK4BRsaoACWvfrJ8=",
+  "Hash": "g/zNoFWsRafN0GWW05211vjMEMUuoy6JYTn7Jg2wTAs=",
   "Source": "HotelManagementSystem",
   "BasePath": "_content/HotelManagementSystem",
   "Mode": "Default",
@@ -1298,6 +1298,48 @@
       "OriginalItemSpec": "wwwroot\\img\\blog\\blog-wide.jpg"
     },
     {
+      "Identity": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\deluxe.jpg",
+      "SourceId": "HotelManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\",
+      "BasePath": "_content/HotelManagementSystem",
+      "RelativePath": "img/deluxe#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "91k2vs3ikq",
+      "Integrity": "Ew8AreUrueHbXnme4Uldc5m/6XxNM+ir68VX5mhbAX8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\deluxe.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\deluxe101.jpeg",
+      "SourceId": "HotelManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\",
+      "BasePath": "_content/HotelManagementSystem",
+      "RelativePath": "img/deluxe101#[.{fingerprint}]?.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "eniphgx40u",
+      "Integrity": "qisiUi3ShCR+V7Z9I30YHl7prU/VO7xMR9o9+5aKeic=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\deluxe101.jpeg"
+    },
+    {
       "Identity": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\e78837_ebac07382a63407193c81eb49a417fbb~mv2.png",
       "SourceId": "HotelManagementSystem",
       "SourceType": "Discovered",
@@ -1317,6 +1359,48 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\e78837_ebac07382a63407193c81eb49a417fbb~mv2.png"
+    },
+    {
+      "Identity": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\family.jpg",
+      "SourceId": "HotelManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\",
+      "BasePath": "_content/HotelManagementSystem",
+      "RelativePath": "img/family#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "wdjb4bi1l1",
+      "Integrity": "HNnlDzSmr8WHLvfurRVRHF4qcCA65m4yIqYNnUot1sY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\family.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\family201.jpg",
+      "SourceId": "HotelManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\",
+      "BasePath": "_content/HotelManagementSystem",
+      "RelativePath": "img/family201#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "dp21x3fkfu",
+      "Integrity": "D597eMX18sHj4MUNGu19/YTYmp/ca7zRkAaCVgG20oY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\family201.jpg"
     },
     {
       "Identity": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\flag.jpg",
@@ -1569,6 +1653,48 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\play.png"
+    },
+    {
+      "Identity": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\premium.jpg",
+      "SourceId": "HotelManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\",
+      "BasePath": "_content/HotelManagementSystem",
+      "RelativePath": "img/premium#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ccobsfcvk7",
+      "Integrity": "BPj7gfPfxtaH+KSsHfWy9TjkKtyDLZLp/GV4tNPZq/U=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\premium.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\premium301.avif",
+      "SourceId": "HotelManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\",
+      "BasePath": "_content/HotelManagementSystem",
+      "RelativePath": "img/premium301#[.{fingerprint}]?.avif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "cfm25psjgp",
+      "Integrity": "CIfUI9mTGIc++3qYkeUzdo1msJxWTXoTdbiIIMPkkUw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\premium301.avif"
     },
     {
       "Identity": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\room\\avatar\\avatar-1.jpg",
@@ -1842,6 +1968,48 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\room\\room-details.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\suit.jpg",
+      "SourceId": "HotelManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\",
+      "BasePath": "_content/HotelManagementSystem",
+      "RelativePath": "img/suit#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "krsc0behdl",
+      "Integrity": "oEhEEkuG1t4CFwH6i6ZjaVecrSfkYqZw5JEamqcIxR0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\suit.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\suit102.jpg",
+      "SourceId": "HotelManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\",
+      "BasePath": "_content/HotelManagementSystem",
+      "RelativePath": "img/suit102#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "zjcxgeotpe",
+      "Integrity": "z4U+tM1bWq8Ohzsm3zsLhLlkFuUh6e8VHeUBxvuMR9Q=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\suit102.jpg"
     },
     {
       "Identity": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\testimonial-logo.png",
@@ -3390,7 +3558,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 01 Jun 2025 16:50:45 GMT"
+          "Value": "Sun, 01 Jun 2025 18:08:22 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3427,7 +3595,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 01 Jun 2025 16:50:45 GMT"
+          "Value": "Sun, 01 Jun 2025 18:08:22 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7058,6 +7226,170 @@
       ]
     },
     {
+      "Route": "img/deluxe.91k2vs3ikq.jpg",
+      "AssetFile": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\deluxe.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "149702"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Ew8AreUrueHbXnme4Uldc5m/6XxNM+ir68VX5mhbAX8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 01 Jun 2025 19:47:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "91k2vs3ikq"
+        },
+        {
+          "Name": "label",
+          "Value": "img/deluxe.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Ew8AreUrueHbXnme4Uldc5m/6XxNM+ir68VX5mhbAX8="
+        }
+      ]
+    },
+    {
+      "Route": "img/deluxe.jpg",
+      "AssetFile": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\deluxe.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "149702"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Ew8AreUrueHbXnme4Uldc5m/6XxNM+ir68VX5mhbAX8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 01 Jun 2025 19:47:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Ew8AreUrueHbXnme4Uldc5m/6XxNM+ir68VX5mhbAX8="
+        }
+      ]
+    },
+    {
+      "Route": "img/deluxe101.eniphgx40u.jpeg",
+      "AssetFile": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\deluxe101.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "42879"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"qisiUi3ShCR+V7Z9I30YHl7prU/VO7xMR9o9+5aKeic=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 01 Jun 2025 19:51:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "eniphgx40u"
+        },
+        {
+          "Name": "label",
+          "Value": "img/deluxe101.jpeg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-qisiUi3ShCR+V7Z9I30YHl7prU/VO7xMR9o9+5aKeic="
+        }
+      ]
+    },
+    {
+      "Route": "img/deluxe101.jpeg",
+      "AssetFile": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\deluxe101.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "42879"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"qisiUi3ShCR+V7Z9I30YHl7prU/VO7xMR9o9+5aKeic=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 01 Jun 2025 19:51:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-qisiUi3ShCR+V7Z9I30YHl7prU/VO7xMR9o9+5aKeic="
+        }
+      ]
+    },
+    {
       "Route": "img/e78837_ebac07382a63407193c81eb49a417fbb~mv2.png",
       "AssetFile": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\e78837_ebac07382a63407193c81eb49a417fbb~mv2.png",
       "Selectors": [],
@@ -7136,6 +7468,170 @@
         {
           "Name": "integrity",
           "Value": "sha256-ur4iyLRHLUvNG1DfWiUOUtHUJ07faF6FP3jKfDnB7aw="
+        }
+      ]
+    },
+    {
+      "Route": "img/family.jpg",
+      "AssetFile": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\family.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "839637"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"HNnlDzSmr8WHLvfurRVRHF4qcCA65m4yIqYNnUot1sY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 01 Jun 2025 20:21:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-HNnlDzSmr8WHLvfurRVRHF4qcCA65m4yIqYNnUot1sY="
+        }
+      ]
+    },
+    {
+      "Route": "img/family.wdjb4bi1l1.jpg",
+      "AssetFile": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\family.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "839637"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"HNnlDzSmr8WHLvfurRVRHF4qcCA65m4yIqYNnUot1sY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 01 Jun 2025 20:21:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "wdjb4bi1l1"
+        },
+        {
+          "Name": "label",
+          "Value": "img/family.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-HNnlDzSmr8WHLvfurRVRHF4qcCA65m4yIqYNnUot1sY="
+        }
+      ]
+    },
+    {
+      "Route": "img/family201.dp21x3fkfu.jpg",
+      "AssetFile": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\family201.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "79783"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"D597eMX18sHj4MUNGu19/YTYmp/ca7zRkAaCVgG20oY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 01 Jun 2025 20:23:04 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "dp21x3fkfu"
+        },
+        {
+          "Name": "label",
+          "Value": "img/family201.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-D597eMX18sHj4MUNGu19/YTYmp/ca7zRkAaCVgG20oY="
+        }
+      ]
+    },
+    {
+      "Route": "img/family201.jpg",
+      "AssetFile": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\family201.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "79783"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"D597eMX18sHj4MUNGu19/YTYmp/ca7zRkAaCVgG20oY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 01 Jun 2025 20:23:04 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-D597eMX18sHj4MUNGu19/YTYmp/ca7zRkAaCVgG20oY="
         }
       ]
     },
@@ -8120,6 +8616,170 @@
         {
           "Name": "integrity",
           "Value": "sha256-qPXIjGcQkpkOXSB+dD2vd10ajtZS3lLKhs284LGE6mw="
+        }
+      ]
+    },
+    {
+      "Route": "img/premium.ccobsfcvk7.jpg",
+      "AssetFile": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\premium.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "93192"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"BPj7gfPfxtaH+KSsHfWy9TjkKtyDLZLp/GV4tNPZq/U=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 01 Jun 2025 20:25:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ccobsfcvk7"
+        },
+        {
+          "Name": "label",
+          "Value": "img/premium.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-BPj7gfPfxtaH+KSsHfWy9TjkKtyDLZLp/GV4tNPZq/U="
+        }
+      ]
+    },
+    {
+      "Route": "img/premium.jpg",
+      "AssetFile": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\premium.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "93192"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"BPj7gfPfxtaH+KSsHfWy9TjkKtyDLZLp/GV4tNPZq/U=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 01 Jun 2025 20:25:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-BPj7gfPfxtaH+KSsHfWy9TjkKtyDLZLp/GV4tNPZq/U="
+        }
+      ]
+    },
+    {
+      "Route": "img/premium301.avif",
+      "AssetFile": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\premium301.avif",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "255040"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CIfUI9mTGIc++3qYkeUzdo1msJxWTXoTdbiIIMPkkUw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 01 Jun 2025 20:27:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-CIfUI9mTGIc++3qYkeUzdo1msJxWTXoTdbiIIMPkkUw="
+        }
+      ]
+    },
+    {
+      "Route": "img/premium301.cfm25psjgp.avif",
+      "AssetFile": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\premium301.avif",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "255040"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CIfUI9mTGIc++3qYkeUzdo1msJxWTXoTdbiIIMPkkUw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 01 Jun 2025 20:27:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "cfm25psjgp"
+        },
+        {
+          "Name": "label",
+          "Value": "img/premium301.avif"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-CIfUI9mTGIc++3qYkeUzdo1msJxWTXoTdbiIIMPkkUw="
         }
       ]
     },
@@ -9186,6 +9846,170 @@
         {
           "Name": "integrity",
           "Value": "sha256-8IpGkncD1ahXtwXCumbhhmU5wrS0FKPSKfqFw1clNqk="
+        }
+      ]
+    },
+    {
+      "Route": "img/suit.jpg",
+      "AssetFile": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\suit.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "119052"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"oEhEEkuG1t4CFwH6i6ZjaVecrSfkYqZw5JEamqcIxR0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 01 Jun 2025 20:11:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-oEhEEkuG1t4CFwH6i6ZjaVecrSfkYqZw5JEamqcIxR0="
+        }
+      ]
+    },
+    {
+      "Route": "img/suit.krsc0behdl.jpg",
+      "AssetFile": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\suit.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "119052"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"oEhEEkuG1t4CFwH6i6ZjaVecrSfkYqZw5JEamqcIxR0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 01 Jun 2025 20:11:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "krsc0behdl"
+        },
+        {
+          "Name": "label",
+          "Value": "img/suit.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-oEhEEkuG1t4CFwH6i6ZjaVecrSfkYqZw5JEamqcIxR0="
+        }
+      ]
+    },
+    {
+      "Route": "img/suit102.jpg",
+      "AssetFile": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\suit102.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "102089"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"z4U+tM1bWq8Ohzsm3zsLhLlkFuUh6e8VHeUBxvuMR9Q=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 01 Jun 2025 20:17:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-z4U+tM1bWq8Ohzsm3zsLhLlkFuUh6e8VHeUBxvuMR9Q="
+        }
+      ]
+    },
+    {
+      "Route": "img/suit102.zjcxgeotpe.jpg",
+      "AssetFile": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\suit102.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "102089"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"z4U+tM1bWq8Ohzsm3zsLhLlkFuUh6e8VHeUBxvuMR9Q=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 01 Jun 2025 20:17:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "zjcxgeotpe"
+        },
+        {
+          "Name": "label",
+          "Value": "img/suit102.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-z4U+tM1bWq8Ohzsm3zsLhLlkFuUh6e8VHeUBxvuMR9Q="
         }
       ]
     },

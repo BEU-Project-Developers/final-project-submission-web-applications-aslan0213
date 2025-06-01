@@ -129,9 +129,12 @@
                                                 <i class="fa fa-cogs"></i> Admin Panel
                                             </a>
                                         }
-                                        <a href="@Url.Action("MyBookings", "Booking")" class="mybookings-btn">
-                                            <i class="fa fa-calendar"></i> My Bookings
-                                        </a>
+                                        else
+                                        {
+                                            <a href="@Url.Action("MyBookings", "Booking")" class="mybookings-btn">
+                                                <i class="fa fa-calendar"></i> My Bookings
+                                            </a>
+                                        }
                                         <a href="@Url.Action("Logout", "Account")" class="logout-btn">
                                             <i class="fa fa-sign-out"></i> Logout
                                         </a>

@@ -191,4 +191,7 @@ C:\Users\lenovo\OneDrive\Desktop\c# final proektler(2ci hisse)\HotelManagementSy
 C:\Users\lenovo\OneDrive\Desktop\c# final proektler(2ci hisse)\HotelManagementSystem\obj\Debug\net8.0\HotelManagementSystem.pdb
 C:\Users\lenovo\OneDrive\Desktop\c# final proektler(2ci hisse)\HotelManagementSystem\obj\Debug\net8.0\HotelManagementSystem.genruntimeconfig.cache
 C:\Users\lenovo\OneDrive\Desktop\c# final proektler(2ci hisse)\HotelManagementSystem\obj\Debug\net8.0\ref\HotelManagementSystem.dll
+C:\Users\lenovo\OneDrive\Desktop\c# final proektler(2ci hisse)\HotelManagementSystem\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\lenovo\OneDrive\Desktop\c# final proektler(2ci hisse)\HotelManagementSystem\bin\Debug\net8.0\MailKit.dll
+C:\Users\lenovo\OneDrive\Desktop\c# final proektler(2ci hisse)\HotelManagementSystem\bin\Debug\net8.0\MimeKit.dll
 C:\Users\lenovo\OneDrive\Desktop\c# final proektler(2ci hisse)\HotelManagementSystem\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

@@ -70,6 +70,59 @@ namespace HotelManagementSystem.Migrations
                     b.ToTable("Bookings");
                 });
 
+            modelBuilder.Entity("HotelManagementSystem.Models.ContactMessage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AdminNotes")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<bool>("IsRead")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<DateTime?>("ReadAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Subject")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ContactMessages");
+                });
+
             modelBuilder.Entity("HotelManagementSystem.Models.Hotel", b =>
                 {
                     b.Property<int>("Id")
@@ -111,7 +164,7 @@ namespace HotelManagementSystem.Migrations
                         {
                             Id = 1,
                             Address = "FR99+HPM, Jafar Jabbarli, Baku, Azerbaijan",
-                            CreatedAt = new DateTime(2025, 6, 1, 12, 18, 17, 112, DateTimeKind.Local).AddTicks(1359),
+                            CreatedAt = new DateTime(2025, 6, 2, 0, 45, 16, 192, DateTimeKind.Local).AddTicks(6708),
                             Description = "Luxury hotel in the heart of Baku",
                             Email = "info.luxevoyage@gmail.com",
                             Name = "LuxeVoyage Hotel",
@@ -266,7 +319,7 @@ namespace HotelManagementSystem.Migrations
                             Id = 1,
                             Amenities = "",
                             Capacity = 2,
-                            CreatedAt = new DateTime(2025, 6, 1, 12, 18, 17, 112, DateTimeKind.Local).AddTicks(2024),
+                            CreatedAt = new DateTime(2025, 6, 2, 0, 45, 16, 192, DateTimeKind.Local).AddTicks(6938),
                             Description = "Luxurious deluxe room with ocean view",
                             HotelId = 1,
                             Image = "room1.jpg",
@@ -282,7 +335,7 @@ namespace HotelManagementSystem.Migrations
                             Id = 2,
                             Amenities = "",
                             Capacity = 4,
-                            CreatedAt = new DateTime(2025, 6, 1, 12, 18, 17, 112, DateTimeKind.Local).AddTicks(2042),
+                            CreatedAt = new DateTime(2025, 6, 2, 0, 45, 16, 192, DateTimeKind.Local).AddTicks(6946),
                             Description = "Spacious executive suite with premium amenities",
                             HotelId = 1,
                             Image = "room2.jpg",
@@ -298,7 +351,7 @@ namespace HotelManagementSystem.Migrations
                             Id = 3,
                             Amenities = "",
                             Capacity = 2,
-                            CreatedAt = new DateTime(2025, 6, 1, 12, 18, 17, 112, DateTimeKind.Local).AddTicks(2048),
+                            CreatedAt = new DateTime(2025, 6, 2, 0, 45, 16, 192, DateTimeKind.Local).AddTicks(6950),
                             Description = "Comfortable standard room with essential amenities",
                             HotelId = 1,
                             Image = "room3.jpg",
@@ -314,7 +367,7 @@ namespace HotelManagementSystem.Migrations
                             Id = 4,
                             Amenities = "",
                             Capacity = 3,
-                            CreatedAt = new DateTime(2025, 6, 1, 12, 18, 17, 112, DateTimeKind.Local).AddTicks(2224),
+                            CreatedAt = new DateTime(2025, 6, 2, 0, 45, 16, 192, DateTimeKind.Local).AddTicks(6952),
                             Description = "Premium room with stunning city views",
                             HotelId = 1,
                             Image = "room4.jpg",
@@ -330,7 +383,7 @@ namespace HotelManagementSystem.Migrations
                             Id = 5,
                             Amenities = "",
                             Capacity = 6,
-                            CreatedAt = new DateTime(2025, 6, 1, 12, 18, 17, 112, DateTimeKind.Local).AddTicks(2233),
+                            CreatedAt = new DateTime(2025, 6, 2, 0, 45, 16, 192, DateTimeKind.Local).AddTicks(6955),
                             Description = "Perfect family room with multiple beds and entertainment",
                             HotelId = 1,
                             Image = "room5.jpg",
@@ -393,7 +446,7 @@ namespace HotelManagementSystem.Migrations
                         {
                             Id = 1,
                             Address = "Baku, Azerbaijan",
-                            CreatedAt = new DateTime(2025, 6, 1, 12, 18, 17, 112, DateTimeKind.Local).AddTicks(1946),
+                            CreatedAt = new DateTime(2025, 6, 2, 0, 45, 16, 192, DateTimeKind.Local).AddTicks(6905),
                             Email = "admin@luxevoyage.com",
                             FullName = "Admin User",
                             Password = "JAvlGPq9JyTdtvBO6x2llnRI1+gxwIyPqCKAn3THIKk=",

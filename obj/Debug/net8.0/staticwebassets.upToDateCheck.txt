@@ -57,7 +57,11 @@ wwwroot\img\blog\blog-details\blog-details-2.jpg
 wwwroot\img\blog\blog-details\blog-details-3.jpg
 wwwroot\img\blog\blog-details\blog-details-hero.jpg
 wwwroot\img\blog\blog-wide.jpg
+wwwroot\img\deluxe.jpg
+wwwroot\img\deluxe101.jpeg
 wwwroot\img\e78837_ebac07382a63407193c81eb49a417fbb~mv2.png
+wwwroot\img\family.jpg
+wwwroot\img\family201.jpg
 wwwroot\img\flag.jpg
 wwwroot\img\footer-logo.png
 wwwroot\img\gallery\gallery-1.jpg
@@ -70,6 +74,8 @@ wwwroot\img\hero\hero-3.jpg
 wwwroot\img\Hilton Head Island's Enchanting Beauty by Spinnaker Resorts.mp4
 wwwroot\img\logo.png
 wwwroot\img\play.png
+wwwroot\img\premium.jpg
+wwwroot\img\premium301.avif
 wwwroot\img\room\avatar\avatar-1.jpg
 wwwroot\img\room\avatar\avatar-2.jpg
 wwwroot\img\room\room-1.jpg
@@ -83,6 +89,8 @@ wwwroot\img\room\room-b2.jpg
 wwwroot\img\room\room-b3.jpg
 wwwroot\img\room\room-b4.jpg
 wwwroot\img\room\room-details.jpg
+wwwroot\img\suit.jpg
+wwwroot\img\suit102.jpg
 wwwroot\img\testimonial-logo.png
 wwwroot\img\video-bg.jpg
 wwwroot\js\bootstrap.min.js

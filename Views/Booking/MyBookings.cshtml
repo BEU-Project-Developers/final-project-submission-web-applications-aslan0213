@@ -4,6 +4,9 @@
     Layout = "_Layout";
 }
 
+@* Anti-forgery token for cancel booking functionality *@
+@Html.AntiForgeryToken()
+
 <div class="container my-5">
     <div class="row">
         <div class="col-12">
@@ -180,7 +183,9 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="cancelBookingModalLabel">Cancel Booking</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
                 <p>Are you sure you want to cancel this booking? This action cannot be undone.</p>
@@ -189,7 +194,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keep Booking</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Keep Booking</button>
                 <button type="button" class="btn btn-danger" id="confirmCancelBtn">Cancel Booking</button>
             </div>
         </div>
@@ -199,35 +204,57 @@
 @section Scripts {
     <script>
         let bookingToCancel = 0;
-
-        function cancelBooking(bookingId) {
+          function cancelBooking(bookingId) {
+            console.log('cancelBooking function called with ID:', bookingId);
             bookingToCancel = bookingId;
-            var modal = new bootstrap.Modal(document.getElementById('cancelBookingModal'));
-            modal.show();
+            
+            const modalElement = document.getElementById('cancelBookingModal');
+            console.log('Modal element found:', modalElement);
+            
+            if (modalElement) {
+                // Bootstrap 4 syntax
+                $(modalElement).modal('show');
+                console.log('Modal should be displayed now');
+            } else {
+                console.error('Modal element not found!');
+            }
         }
 
-        document.getElementById('confirmCancelBtn').addEventListener('click', function() {
-            if (bookingToCancel > 0) {
-                // Make AJAX call to cancel booking
-                fetch(`/Booking/Cancel/${bookingToCancel}`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]').value
-                    }
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        location.reload();
+        document.addEventListener('DOMContentLoaded', function() {
+            const confirmBtn = document.getElementById('confirmCancelBtn');
+            console.log('Confirm button found:', confirmBtn);
+            
+            if (confirmBtn) {
+                confirmBtn.addEventListener('click', function() {
+                    console.log('Confirm cancel button clicked, booking ID:', bookingToCancel);
+                    
+                    if (bookingToCancel > 0) {
+                        // Create a form and submit it
+                        const form = document.createElement('form');
+                        form.method = 'POST';
+                        form.action = `/Booking/Cancel/${bookingToCancel}`;
+                        
+                        // Add anti-forgery token
+                        const token = document.querySelector('input[name="__RequestVerificationToken"]');
+                        console.log('Anti-forgery token found:', token);
+                        
+                        if (token) {
+                            const tokenInput = document.createElement('input');
+                            tokenInput.type = 'hidden';
+                            tokenInput.name = '__RequestVerificationToken';
+                            tokenInput.value = token.value;
+                            form.appendChild(tokenInput);
+                        }
+                        
+                        document.body.appendChild(form);
+                        console.log('Submitting form to:', form.action);
+                        form.submit();
                     } else {
-                        alert('Failed to cancel booking: ' + data.message);
+                        console.error('No booking ID to cancel');
                     }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('An error occurred while canceling the booking.');
                 });
+            } else {
+                console.error('Confirm cancel button not found!');
             }
         });
     </script>

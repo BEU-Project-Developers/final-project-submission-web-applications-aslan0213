@@ -189,10 +189,9 @@ namespace HotelManagementSystem.Controllers
             if (booking == null) return NotFound();
 
             return View(booking);
-        }
-
-        [HttpPost]
+        }        [HttpPost]
         [Authorize]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Cancel(int id)
         {
             var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "0");

@@ -1,0 +1,146 @@
+@model IEnumerable<Room>
+@{
+    ViewData["Title"] = "Room Management";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h4 class="card-title mb-0">
+                        <i class="fa fa-bed"></i> Room Management
+                    </h4>
+                    <a asp-action="CreateRoom" class="btn btn-primary">
+                        <i class="fa fa-plus"></i> Add New Room
+                    </a>
+                </div>
+                <div class="card-body">                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            @TempData["Success"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    }
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            @TempData["Error"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    }
+                    @if (TempData["Debug"] != null)
+                    {
+                        <div class="alert alert-info alert-dismissible fade show" role="alert">
+                            <strong>Debug Info:</strong> @TempData["Debug"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    }
+
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Room Number</th>
+                                    <th>Type</th>
+                                    <th>Price per Night</th>
+                                    <th>Max Guests</th>
+                                    <th>Status</th>
+                                    <th>Features</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var room in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            <strong>@room.RoomNumber</strong>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-info">@room.Type</span>
+                                        </td>                                        <td>
+                                            <strong>$@room.Price.ToString("F2")</strong>
+                                        </td>
+                                        <td>
+                                            <i class="fa fa-users"></i> @room.Capacity
+                                        </td>
+                                        <td>
+                                            @if (room.IsAvailable)
+                                            {
+                                                <span class="badge bg-success">Available</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge bg-danger">Occupied</span>
+                                            }
+                                        </td>
+                                        <td>
+                                            <small class="text-muted">@string.Join(", ", room.Amenities)</small>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group" role="group">
+                                                <a asp-action="EditRoom" asp-route-id="@room.Id" 
+                                                   class="btn btn-sm btn-outline-primary">
+                                                    <i class="fa fa-edit"></i> Edit
+                                                </a>
+                                                <button type="button" class="btn btn-sm btn-outline-danger" 
+                                                        onclick="confirmDelete(@room.Id, '@room.RoomNumber')">
+                                                    <i class="fa fa-trash"></i> Delete
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+
+                    @if (!Model.Any())
+                    {
+                        <div class="text-center py-4">
+                            <i class="fa fa-bed fa-3x text-muted mb-3"></i>
+                            <h5 class="text-muted">No rooms found</h5>
+                            <p class="text-muted">Start by adding your first room to the system.</p>
+                            <a asp-action="CreateRoom" class="btn btn-primary">
+                                <i class="fa fa-plus"></i> Add First Room
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirm Delete</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete room <strong id="roomNumber"></strong>?</p>
+                <p class="text-warning"><small>This action cannot be undone and will only work if the room has no existing bookings.</small></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <form method="post" style="display: inline;">
+                    <input type="hidden" id="deleteRoomId" name="id" />
+                    <button type="submit" asp-action="DeleteRoom" class="btn btn-danger">Delete Room</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function confirmDelete(roomId, roomNumber) {
+    document.getElementById('deleteRoomId').value = roomId;
+    document.getElementById('roomNumber').textContent = roomNumber;
+    new bootstrap.Modal(document.getElementById('deleteModal')).show();
+}
+</script>

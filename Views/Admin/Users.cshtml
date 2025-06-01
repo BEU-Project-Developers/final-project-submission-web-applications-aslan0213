@@ -1,0 +1,152 @@
+@model IEnumerable<User>
+@{
+    ViewData["Title"] = "User Management";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title mb-0">
+                        <i class="fa fa-users"></i> User Management
+                    </h4>
+                </div>
+                <div class="card-body">
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            @TempData["Success"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    }
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            @TempData["Error"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    }
+
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>User ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Role</th>
+                                    <th>Registration Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var user in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            <strong>#@user.Id</strong>
+                                        </td>
+                                        <td>
+                                            <strong>@user.FullName</strong>
+                                        </td>
+                                        <td>
+                                            @user.Email
+                                        </td>
+                                        <td>
+                                            @user.PhoneNumber
+                                        </td>
+                                        <td>
+                                            @switch (user.Role)
+                                            {
+                                                case "Admin":
+                                                    <span class="badge bg-danger">Admin</span>
+                                                    break;
+                                                case "Staff":
+                                                    <span class="badge bg-warning">Staff</span>
+                                                    break;
+                                                case "Customer":
+                                                    <span class="badge bg-success">Customer</span>
+                                                    break;
+                                                default:
+                                                    <span class="badge bg-secondary">@user.Role</span>
+                                                    break;
+                                            }
+                                        </td>
+                                        <td>
+                                            @user.CreatedAt.ToString("MMM dd, yyyy")
+                                        </td>
+                                        <td>
+                                            @if (user.Role != "Admin")
+                                            {
+                                                <div class="dropdown">
+                                                    <button class="btn btn-sm btn-outline-primary dropdown-toggle" 
+                                                            type="button" data-bs-toggle="dropdown">
+                                                        Change Role
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        @if (user.Role != "Customer")
+                                                        {
+                                                            <li>
+                                                                <form method="post" asp-action="UpdateUserRole" style="display: inline;">
+                                                                    <input type="hidden" name="id" value="@user.Id" />
+                                                                    <input type="hidden" name="role" value="Customer" />
+                                                                    <button type="submit" class="dropdown-item">
+                                                                        <i class="fa fa-user text-success"></i> Make Customer
+                                                                    </button>
+                                                                </form>
+                                                            </li>
+                                                        }
+                                                        @if (user.Role != "Staff")
+                                                        {
+                                                            <li>
+                                                                <form method="post" asp-action="UpdateUserRole" style="display: inline;">
+                                                                    <input type="hidden" name="id" value="@user.Id" />
+                                                                    <input type="hidden" name="role" value="Staff" />
+                                                                    <button type="submit" class="dropdown-item">
+                                                                        <i class="fa fa-briefcase text-warning"></i> Make Staff
+                                                                    </button>
+                                                                </form>
+                                                            </li>
+                                                        }
+                                                        @if (user.Role != "Admin")
+                                                        {
+                                                            <li>
+                                                                <form method="post" asp-action="UpdateUserRole" style="display: inline;">
+                                                                    <input type="hidden" name="id" value="@user.Id" />
+                                                                    <input type="hidden" name="role" value="Admin" />
+                                                                    <button type="submit" class="dropdown-item">
+                                                                        <i class="fa fa-crown text-danger"></i> Make Admin
+                                                                    </button>
+                                                                </form>
+                                                            </li>
+                                                        }
+                                                    </ul>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <span class="text-muted">Protected</span>
+                                            }
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+
+                    @if (!Model.Any())
+                    {
+                        <div class="text-center py-4">
+                            <i class="fa fa-users fa-3x text-muted mb-3"></i>
+                            <h5 class="text-muted">No users found</h5>
+                            <p class="text-muted">No users are registered in the system yet.</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

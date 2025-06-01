@@ -1,0 +1,261 @@
+@model Booking
+@{
+    ViewData["Title"] = "Booking Details";
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="breadcrumb-content">
+                <div class="breadcrumb-heading">
+                    <h3>Booking Details</h3>
+                </div>
+                <div class="breadcrumb-text">
+                    <p>Booking #@Model.Id - Complete information</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Booking Information</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <table class="table table-borderless">
+                                <tr>
+                                    <td><strong>Booking ID:</strong></td>
+                                    <td>#@Model.Id</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Guest Name:</strong></td>
+                                    <td>@Model.User.FullName</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Email:</strong></td>
+                                    <td>@Model.User.Email</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Phone:</strong></td>
+                                    <td>@(Model.User.PhoneNumber ?? "Not provided")</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Booking Date:</strong></td>
+                                    <td>@Model.BookingDate.ToString("MM/dd/yyyy HH:mm")</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-md-6">
+                            <table class="table table-borderless">
+                                <tr>
+                                    <td><strong>Room:</strong></td>
+                                    <td>@Model.Room.Type Room - @Model.Room.RoomNumber</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Check-in:</strong></td>
+                                    <td>@Model.CheckInDate.ToString("dddd, MMMM dd, yyyy")</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Check-out:</strong></td>
+                                    <td>@Model.CheckOutDate.ToString("dddd, MMMM dd, yyyy")</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Nights:</strong></td>
+                                    <td>@((Model.CheckOutDate - Model.CheckInDate).Days)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Guests:</strong></td>
+                                    <td>@Model.NumberOfGuests</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    @if (!string.IsNullOrEmpty(Model.SpecialRequests))
+                    {
+                        <div class="mt-3">
+                            <h6>Special Requests:</h6>
+                            <p class="text-muted">@Model.SpecialRequests</p>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <!-- Payment Information -->
+            @if (Model.Payments?.Any() == true)
+            {
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <h5>Payment Information</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Amount</th>
+                                        <th>Method</th>
+                                        <th>Status</th>
+                                        <th>Transaction ID</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var payment in Model.Payments)
+                                    {
+                                        <tr>
+                                            <td>@payment.PaymentDate.ToString("MM/dd/yyyy")</td>
+                                            <td>@payment.Amount.ToString("C")</td>
+                                            <td>@payment.PaymentMethod</td>
+                                            <td>
+                                                <span class="badge badge-@GetPaymentStatusClass(payment.Status)">
+                                                    @payment.Status
+                                                </span>
+                                            </td>
+                                            <td>@(payment.TransactionId ?? "N/A")</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <!-- Reviews -->
+            @if (Model.Reviews?.Any() == true)
+            {
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <h5>Customer Reviews</h5>
+                    </div>
+                    <div class="card-body">
+                        @foreach (var review in Model.Reviews)
+                        {
+                            <div class="border-bottom pb-3 mb-3">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <strong>@review.User.FullName</strong>
+                                        <div class="text-warning">
+                                            @for (int i = 1; i <= 5; i++)
+                                            {
+                                                @if (i <= review.Rating)
+                                                {
+                                                    <i class="fa fa-star"></i>
+                                                }
+                                                else
+                                                {
+                                                    <i class="fa fa-star-o"></i>
+                                                }
+                                            }
+                                        </div>
+                                    </div>
+                                    <small class="text-muted">@review.ReviewDate.ToString("MM/dd/yyyy")</small>
+                                </div>
+                                @if (!string.IsNullOrEmpty(review.Comment))
+                                {
+                                    <p class="mt-2 mb-0">@review.Comment</p>
+                                }
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="col-md-4">
+            <!-- Booking Status & Actions -->
+            <div class="card">
+                <div class="card-header">
+                    <h5>Booking Status</h5>
+                </div>
+                <div class="card-body">
+                    <div class="text-center">
+                        <span class="badge badge-@GetStatusClass(Model.Status) badge-lg mb-3" style="font-size: 1.1em;">
+                            @Model.Status
+                        </span>
+                        <h4 class="text-success">@Model.TotalPrice.ToString("C")</h4>
+                        <p class="text-muted">Total Amount</p>
+                    </div>
+                    
+                    <hr>
+                    
+                    <div class="btn-group-vertical w-100">
+                        @if (Model.Status == "Pending")
+                        {
+                            <form asp-controller="Admin" asp-action="UpdateBookingStatus" method="post" class="mb-2">
+                                <input type="hidden" name="id" value="@Model.Id" />
+                                <input type="hidden" name="status" value="Confirmed" />
+                                <button type="submit" class="btn btn-success btn-block">Confirm Booking</button>
+                            </form>
+                            <form asp-controller="Admin" asp-action="UpdateBookingStatus" method="post" class="mb-2">
+                                <input type="hidden" name="id" value="@Model.Id" />
+                                <input type="hidden" name="status" value="Cancelled" />
+                                <button type="submit" class="btn btn-danger btn-block" onclick="return confirm('Are you sure you want to cancel this booking?')">Cancel Booking</button>
+                            </form>
+                        }
+                        else if (Model.Status == "Confirmed")
+                        {
+                            <form asp-controller="Admin" asp-action="UpdateBookingStatus" method="post" class="mb-2">
+                                <input type="hidden" name="id" value="@Model.Id" />
+                                <input type="hidden" name="status" value="Completed" />
+                                <button type="submit" class="btn btn-info btn-block">Mark as Completed</button>
+                            </form>
+                        }
+                        
+                        <a asp-controller="Admin" asp-action="Bookings" class="btn btn-secondary">Back to Bookings</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Room Information -->
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h5>Room Details</h5>
+                </div>
+                <div class="card-body">
+                    <img src="~/img/@Model.Room.Image" class="img-fluid rounded mb-3" alt="Room Image">
+                    <h6>@Model.Room.Type Room @Model.Room.RoomNumber</h6>
+                    <p class="text-muted">Capacity: @Model.Room.Capacity guests</p>
+                    <p class="text-muted">Price: @Model.Room.Price.ToString("C") per night</p>
+                    
+                    @if (!string.IsNullOrEmpty(Model.Room.Description))
+                    {
+                        <p><small>@Model.Room.Description</small></p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@functions {
+    string GetStatusClass(string status)
+    {
+        return status switch
+        {
+            "Pending" => "warning",
+            "Confirmed" => "success",
+            "Cancelled" => "danger",
+            "Completed" => "info",
+            _ => "secondary"
+        };
+    }
+    
+    string GetPaymentStatusClass(string status)
+    {
+        return status switch
+        {
+            "Completed" => "success",
+            "Pending" => "warning",
+            "Failed" => "danger",
+            "Refunded" => "info",
+            _ => "secondary"
+        };
+    }
+}

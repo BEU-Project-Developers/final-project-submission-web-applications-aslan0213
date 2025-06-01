@@ -3,8 +3,19 @@
   "WorkspaceRootPath": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/HotelManagementDB/True/SqlTable/dbo.Rooms.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FA0AADF-FA9E-4222-9386-E06ABB384897}|HotelManagementSystem.csproj|c:\\users\\lenovo\\onedrive\\desktop\\c# final proektler(2ci hisse)\\hotelmanagementsystem\\views\\admin\\createroom.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8FA0AADF-FA9E-4222-9386-E06ABB384897}|HotelManagementSystem.csproj|solutionrelative:views\\admin\\createroom.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8FA0AADF-FA9E-4222-9386-E06ABB384897}|HotelManagementSystem.csproj|c:\\users\\lenovo\\onedrive\\desktop\\c# final proektler(2ci hisse)\\hotelmanagementsystem\\models\\bookingviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8FA0AADF-FA9E-4222-9386-E06ABB384897}|HotelManagementSystem.csproj|solutionrelative:models\\bookingviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FA0AADF-FA9E-4222-9386-E06ABB384897}|HotelManagementSystem.csproj|c:\\users\\lenovo\\onedrive\\desktop\\c# final proektler(2ci hisse)\\hotelmanagementsystem\\comprehensive_test_report.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{8FA0AADF-FA9E-4222-9386-E06ABB384897}|HotelManagementSystem.csproj|solutionrelative:comprehensive_test_report.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8FA0AADF-FA9E-4222-9386-E06ABB384897}|HotelManagementSystem.csproj|c:\\users\\lenovo\\onedrive\\desktop\\c# final proektler(2ci hisse)\\hotelmanagementsystem\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,31 +30,12 @@
       "RelativeMoniker": "D:0:0:{8FA0AADF-FA9E-4222-9386-E06ABB384897}|HotelManagementSystem.csproj|solutionrelative:services\\paymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8FA0AADF-FA9E-4222-9386-E06ABB384897}|HotelManagementSystem.csproj|c:\\users\\lenovo\\onedrive\\desktop\\c# final proektler(2ci hisse)\\hotelmanagementsystem\\testing_guide.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
-      "RelativeMoniker": "D:0:0:{8FA0AADF-FA9E-4222-9386-E06ABB384897}|HotelManagementSystem.csproj|solutionrelative:testing_guide.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8FA0AADF-FA9E-4222-9386-E06ABB384897}|HotelManagementSystem.csproj|c:\\users\\lenovo\\onedrive\\desktop\\c# final proektler(2ci hisse)\\hotelmanagementsystem\\test_results.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
-      "RelativeMoniker": "D:0:0:{8FA0AADF-FA9E-4222-9386-E06ABB384897}|HotelManagementSystem.csproj|solutionrelative:test_results.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8FA0AADF-FA9E-4222-9386-E06ABB384897}|HotelManagementSystem.csproj|c:\\users\\lenovo\\onedrive\\desktop\\c# final proektler(2ci hisse)\\hotelmanagementsystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{8FA0AADF-FA9E-4222-9386-E06ABB384897}|HotelManagementSystem.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8FA0AADF-FA9E-4222-9386-E06ABB384897}|HotelManagementSystem.csproj|c:\\users\\lenovo\\onedrive\\desktop\\c# final proektler(2ci hisse)\\hotelmanagementsystem\\final_test_summary.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
-      "RelativeMoniker": "D:0:0:{8FA0AADF-FA9E-4222-9386-E06ABB384897}|HotelManagementSystem.csproj|solutionrelative:final_test_summary.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8FA0AADF-FA9E-4222-9386-E06ABB384897}|HotelManagementSystem.csproj|c:\\users\\lenovo\\onedrive\\desktop\\c# final proektler(2ci hisse)\\hotelmanagementsystem\\comprehensive_test_report.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
-      "RelativeMoniker": "D:0:0:{8FA0AADF-FA9E-4222-9386-E06ABB384897}|HotelManagementSystem.csproj|solutionrelative:comprehensive_test_report.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8FA0AADF-FA9E-4222-9386-E06ABB384897}|HotelManagementSystem.csproj|c:\\users\\lenovo\\onedrive\\desktop\\c# final proektler(2ci hisse)\\hotelmanagementsystem\\authentication_fix_summary.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
       "RelativeMoniker": "D:0:0:{8FA0AADF-FA9E-4222-9386-E06ABB384897}|HotelManagementSystem.csproj|solutionrelative:authentication_fix_summary.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/HotelManagementDB/True/SqlTable/dbo.Rooms.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/HotelManagementDB/True/SqlTable/dbo.Users.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
@@ -100,19 +92,42 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "dbo.Rooms [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/HotelManagementDB/True/SqlTable/dbo.Rooms.sql",
+              "ToolTip": "dbo.Rooms [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-06-01T11:47:48.268Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CreateRoom.cshtml",
+              "DocumentMoniker": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\Views\\Admin\\CreateRoom.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\CreateRoom.cshtml",
+              "ToolTip": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\Views\\Admin\\CreateRoom.cshtml",
+              "RelativeToolTip": "Views\\Admin\\CreateRoom.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-01T11:40:34.822Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "BookingViewModel.cs",
               "DocumentMoniker": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\Models\\BookingViewModel.cs",
               "RelativeDocumentMoniker": "Models\\BookingViewModel.cs",
               "ToolTip": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\Models\\BookingViewModel.cs",
               "RelativeToolTip": "Models\\BookingViewModel.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-01T08:59:48.897Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "LoginViewModel.cs",
               "DocumentMoniker": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\Models\\LoginViewModel.cs",
               "RelativeDocumentMoniker": "Models\\LoginViewModel.cs",
@@ -120,12 +135,11 @@
               "RelativeToolTip": "Models\\LoginViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-01T08:59:40.487Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-01T08:59:40.487Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "PaymentService.cs",
               "DocumentMoniker": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\Services\\PaymentService.cs",
               "RelativeDocumentMoniker": "Services\\PaymentService.cs",
@@ -133,12 +147,11 @@
               "RelativeToolTip": "Services\\PaymentService.cs",
               "ViewState": "AgIAADIAAAAAAAAAAAAswBYAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-01T08:59:15.07Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-01T08:59:15.07Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "BookingService.cs",
               "DocumentMoniker": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\Services\\BookingService.cs",
               "RelativeDocumentMoniker": "Services\\BookingService.cs",
@@ -146,38 +159,11 @@
               "RelativeToolTip": "Services\\BookingService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-01T08:58:56.575Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-01T08:58:56.575Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "TESTING_GUIDE.md",
-              "DocumentMoniker": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\TESTING_GUIDE.md",
-              "RelativeDocumentMoniker": "TESTING_GUIDE.md",
-              "ToolTip": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\TESTING_GUIDE.md",
-              "RelativeToolTip": "TESTING_GUIDE.md",
-              "ViewState": "AgIAANUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2025-06-01T08:58:21.298Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "TEST_RESULTS.md",
-              "DocumentMoniker": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\TEST_RESULTS.md",
-              "RelativeDocumentMoniker": "TEST_RESULTS.md",
-              "ToolTip": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\TEST_RESULTS.md",
-              "RelativeToolTip": "TEST_RESULTS.md",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2025-06-01T08:58:10.378Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -185,25 +171,11 @@
               "RelativeToolTip": "appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-06-01T08:57:51.9Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-01T08:57:51.9Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "FINAL_TEST_SUMMARY.md",
-              "DocumentMoniker": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\FINAL_TEST_SUMMARY.md",
-              "RelativeDocumentMoniker": "FINAL_TEST_SUMMARY.md",
-              "ToolTip": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\FINAL_TEST_SUMMARY.md",
-              "RelativeToolTip": "FINAL_TEST_SUMMARY.md",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2025-06-01T08:56:34.858Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 3,
               "Title": "COMPREHENSIVE_TEST_REPORT.md",
               "DocumentMoniker": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\COMPREHENSIVE_TEST_REPORT.md",
               "RelativeDocumentMoniker": "COMPREHENSIVE_TEST_REPORT.md",
@@ -216,7 +188,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 8,
               "Title": "AUTHENTICATION_FIX_SUMMARY.md",
               "DocumentMoniker": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\AUTHENTICATION_FIX_SUMMARY.md",
               "RelativeDocumentMoniker": "AUTHENTICATION_FIX_SUMMARY.md",
@@ -224,32 +196,20 @@
               "RelativeToolTip": "AUTHENTICATION_FIX_SUMMARY.md",
               "ViewState": "AgIAAHgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2025-06-01T08:55:33.292Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-01T08:55:33.292Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "dbo.Users.sql",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/HotelManagementDB/True/SqlTable/dbo.Users.sql",
+              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/HotelManagementDB/True/SqlTable/dbo.Users.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-06-01T08:08:42.23Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "dbo.Rooms [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/HotelManagementDB/True/SqlTable/dbo.Rooms.sql",
-              "ToolTip": "dbo.Rooms [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-06-01T08:51:15.182Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "dbo.Users [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/HotelManagementDB/True/SqlTable/dbo.Users.sql",
-              "ToolTip": "dbo.Users [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-06-01T08:08:42.23Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
               "Title": "Login.cshtml",
               "DocumentMoniker": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\Views\\Account\\Login.cshtml",
               "RelativeDocumentMoniker": "Views\\Account\\Login.cshtml",
@@ -257,12 +217,11 @@
               "RelativeToolTip": "Views\\Account\\Login.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-01T06:25:53.793Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-01T06:25:53.793Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 14,
               "Title": "PremiumKingController.cs",
               "DocumentMoniker": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\Controllers\\PremiumKingController.cs",
               "RelativeDocumentMoniker": "Controllers\\PremiumKingController.cs",
@@ -274,7 +233,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 16,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\Views\\Rooms\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Rooms\\Index.cshtml",
@@ -286,7 +245,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 15,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\Views\\Blog\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Blog\\Index.cshtml",
@@ -298,7 +257,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 18,
               "Title": "index.html",
               "DocumentMoniker": "C:\\Users\\lenovo\\OneDrive\\Desktop\\asp.net project\\HotelManagementSystem\\themewagon.github.io\\sona\\index.html",
               "RelativeDocumentMoniker": "..\\..\\asp.net project\\HotelManagementSystem\\themewagon.github.io\\sona\\index.html",
@@ -309,7 +268,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 13,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\Views\\AboutUs\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\AboutUs\\Index.cshtml",
@@ -321,7 +280,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 17,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\Views\\Contact\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Contact\\Index.cshtml",
@@ -333,7 +292,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 11,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
@@ -345,7 +304,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 12,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",

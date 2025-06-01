@@ -14,10 +14,9 @@ namespace HotelManagementSystem.Controllers
         public AdminController(HotelDbContext context)
         {
             _context = context;
-        }
-
-        public async Task<IActionResult> Index()
-        {            var model = new DashboardViewModel
+        }        public async Task<IActionResult> Index()
+        {            
+            var model = new DashboardViewModel
             {
                 TotalBookings = await _context.Bookings.CountAsync(),
                 TotalUsers = await _context.Users.CountAsync(),
@@ -47,17 +46,26 @@ namespace HotelManagementSystem.Controllers
             // Booking status statistics
             model.BookingsByStatus = await _context.Bookings
                 .GroupBy(b => b.Status)
-                .ToDictionaryAsync(g => g.Key, g => g.Count());            // Revenue by month (last 6 months)
+                .ToDictionaryAsync(g => g.Key, g => g.Count());            
+
+            // Revenue by month (last 6 months)
             var sixMonthsAgo = DateTime.Now.AddMonths(-6);
             var paymentsData = await _context.Payments
                 .Where(p => p.Status == "Completed" && p.PaymentDate >= sixMonthsAgo)
                 .Select(p => new { p.PaymentDate, p.Amount })
                 .ToListAsync();
-              model.RevenueByMonth = paymentsData
+              
+            model.RevenueByMonth = paymentsData
                 .GroupBy(p => p.PaymentDate.ToString("yyyy-MM"))
                 .ToDictionary(g => g.Key, g => g.Sum(p => p.Amount));
 
             return View("Dashboard", model);
+        }
+
+        // Add Dashboard action method for direct access
+        public async Task<IActionResult> Dashboard()
+        {
+            return await Index();
         }
 
         // Room Management
@@ -70,13 +78,20 @@ namespace HotelManagementSystem.Controllers
         public IActionResult CreateRoom()
         {
             return View();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> CreateRoom(Room room)
+        }        [HttpPost]
+        public async Task<IActionResult> CreateRoom(Room room, string amenitiesString)
         {
             if (ModelState.IsValid)
             {
+                // Process amenities string
+                if (!string.IsNullOrEmpty(amenitiesString))
+                {
+                    room.Amenities = amenitiesString.Split(',')
+                        .Select(a => a.Trim())
+                        .Where(a => !string.IsNullOrEmpty(a))
+                        .ToList();
+                }
+
                 room.HotelId = 1; // Default hotel
                 _context.Rooms.Add(room);
                 await _context.SaveChangesAsync();
@@ -91,18 +106,44 @@ namespace HotelManagementSystem.Controllers
             var room = await _context.Rooms.FindAsync(id);
             if (room == null) return NotFound();
             return View(room);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> EditRoom(Room room)
+        }        [HttpPost]
+        public async Task<IActionResult> EditRoom(Room room, string amenitiesString)
         {
+            // Add debug information to TempData
+            TempData["Debug"] = $"Received Room: ID={room.Id}, Number={room.RoomNumber}, Type={room.Type}, Price={room.Price}, Capacity={room.Capacity}, IsAvailable={room.IsAvailable}";
+            
             if (ModelState.IsValid)
             {
-                _context.Rooms.Update(room);
-                await _context.SaveChangesAsync();
-                TempData["Success"] = "Room updated successfully!";
+                // Process amenities string
+                if (!string.IsNullOrEmpty(amenitiesString))
+                {
+                    room.Amenities = amenitiesString.Split(',')
+                        .Select(a => a.Trim())
+                        .Where(a => !string.IsNullOrEmpty(a))
+                        .ToList();
+                }
+                else
+                {
+                    room.Amenities = new List<string>();
+                }                try {
+                    _context.Rooms.Update(room);
+                    await _context.SaveChangesAsync();
+                    TempData["Success"] = "Room updated successfully!";
+                }
+                catch (Exception ex)
+                {
+                    TempData["Error"] = $"Error updating room: {ex.Message}";
+                    // Return to the rooms list even if there's an error
+                    return RedirectToAction("Rooms");                }
                 return RedirectToAction("Rooms");
             }
+            
+            // If we get here, there was a validation error
+            TempData["Error"] = "There were validation errors. Please check your input.";
+            var errorList = string.Join("; ", ModelState.Values
+                .SelectMany(v => v.Errors)
+                .Select(e => e.ErrorMessage));
+            TempData["Debug"] += $" | Validation errors: {errorList}";
             return View(room);
         }
 
@@ -221,6 +262,115 @@ namespace HotelManagementSystem.Controllers
                 TempData["Success"] = "Review deleted successfully!";
             }
             return RedirectToAction("Reviews");
+        }
+
+        // Dashboard Quick Actions
+        public IActionResult ManageBookings()
+        {
+            return RedirectToAction("Bookings");
+        }
+
+        public IActionResult ManageRooms()
+        {
+            return RedirectToAction("Rooms");
+        }
+
+        public IActionResult ManageUsers()
+        {
+            return RedirectToAction("Users");
+        }
+
+        // Booking Details
+        public async Task<IActionResult> BookingDetails(int id)
+        {
+            var booking = await _context.Bookings
+                .Include(b => b.User)
+                .Include(b => b.Room)
+                .Include(b => b.Payments)
+                .Include(b => b.Reviews)
+                .FirstOrDefaultAsync(b => b.Id == id);
+
+            if (booking == null)
+            {
+                TempData["Error"] = "Booking not found.";
+                return RedirectToAction("Bookings");
+            }
+
+            return View(booking);
+        }
+
+        // Reports
+        public async Task<IActionResult> ViewReports()
+        {
+            var model = new ReportsViewModel
+            {
+                TotalBookings = await _context.Bookings.CountAsync(),
+                TotalRevenue = await _context.Payments.Where(p => p.Status == "Completed").SumAsync(p => p.Amount),
+                TotalUsers = await _context.Users.CountAsync(),
+                TotalRooms = await _context.Rooms.CountAsync(),
+                AvailableRooms = await _context.Rooms.CountAsync(r => r.IsAvailable),
+                
+                // Monthly revenue for the last 12 months
+                MonthlyRevenue = await GetMonthlyRevenue(),
+                
+                // Booking status distribution
+                BookingsByStatus = await _context.Bookings
+                    .GroupBy(b => b.Status)
+                    .ToDictionaryAsync(g => g.Key, g => g.Count()),
+                
+                // Room occupancy rate
+                RoomOccupancyData = await GetRoomOccupancyData(),
+                
+                // Top customers
+                TopCustomers = await _context.Bookings
+                    .Include(b => b.User)
+                    .GroupBy(b => b.UserId)
+                    .Select(g => new CustomerReportData
+                    {
+                        CustomerName = g.First().User.FullName,
+                        CustomerEmail = g.First().User.Email,
+                        TotalBookings = g.Count(),
+                        TotalSpent = g.Sum(b => b.TotalPrice)
+                    })
+                    .OrderByDescending(c => c.TotalSpent)
+                    .Take(10)
+                    .ToListAsync()
+            };
+
+            return View(model);
+        }
+
+        private async Task<Dictionary<string, decimal>> GetMonthlyRevenue()
+        {
+            var twelveMonthsAgo = DateTime.Now.AddMonths(-12);
+            var paymentsData = await _context.Payments
+                .Where(p => p.Status == "Completed" && p.PaymentDate >= twelveMonthsAgo)
+                .Select(p => new { p.PaymentDate, p.Amount })
+                .ToListAsync();
+
+            return paymentsData
+                .GroupBy(p => p.PaymentDate.ToString("yyyy-MM"))
+                .ToDictionary(g => g.Key, g => g.Sum(p => p.Amount));
+        }
+
+        private async Task<Dictionary<string, object>> GetRoomOccupancyData()
+        {
+            var totalRooms = await _context.Rooms.CountAsync();
+            var occupiedRooms = await _context.Bookings
+                .Where(b => b.Status == "Confirmed" && 
+                           b.CheckInDate <= DateTime.Now && 
+                           b.CheckOutDate >= DateTime.Now)
+                .CountAsync();
+
+            var occupancyRate = totalRooms > 0 ? (double)occupiedRooms / totalRooms * 100 : 0;
+
+            return new Dictionary<string, object>
+            {
+                { "TotalRooms", totalRooms },
+                { "OccupiedRooms", occupiedRooms },
+                { "AvailableRooms", totalRooms - occupiedRooms },
+                { "OccupancyRate", Math.Round(occupancyRate, 1) }
+            };
         }
     }
 }

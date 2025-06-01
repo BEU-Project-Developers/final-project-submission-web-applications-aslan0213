@@ -1,0 +1,242 @@
+@model IEnumerable<Review>
+@{
+    ViewData["Title"] = "Review Management";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title mb-0">
+                        <i class="fa fa-star"></i> Review Management
+                    </h4>
+                </div>
+                <div class="card-body">
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            @TempData["Success"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    }
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            @TempData["Error"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    }
+
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Review ID</th>
+                                    <th>Customer</th>
+                                    <th>Room</th>
+                                    <th>Booking</th>
+                                    <th>Rating</th>
+                                    <th>Review</th>
+                                    <th>Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var review in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            <strong>#@review.Id</strong>
+                                        </td>
+                                        <td>
+                                            <strong>@review.User.FullName</strong>
+                                            <br>
+                                            <small class="text-muted">@review.User.Email</small>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-info">@review.Room.RoomNumber</span>
+                                            <br>
+                                            <small class="text-muted">@review.Room.Type</small>
+                                        </td>
+                                        <td>
+                                            <a asp-action="BookingDetails" asp-route-id="@review.BookingId" class="text-decoration-none">
+                                                <strong>Booking #@review.BookingId</strong>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <div class="rating">
+                                                @for (int i = 1; i <= 5; i++)
+                                                {
+                                                    if (i <= review.Rating)
+                                                    {
+                                                        <i class="fa fa-star text-warning"></i>
+                                                    }
+                                                    else
+                                                    {
+                                                        <i class="fa fa-star text-muted"></i>
+                                                    }
+                                                }
+                                            </div>
+                                            <small class="text-muted">(@review.Rating/5)</small>
+                                        </td>
+                                        <td>
+                                            <div style="max-width: 300px;">
+                                                @if (!string.IsNullOrEmpty(review.Comment))
+                                                {
+                                                    if (review.Comment.Length > 100)
+                                                    {
+                                                        <span>@review.Comment.Substring(0, 100)...</span>
+                                                        <br>
+                                                        <button class="btn btn-sm btn-link p-0" type="button" 
+                                                                data-bs-toggle="collapse" 
+                                                                data-bs-target="#review-@review.Id" 
+                                                                aria-expanded="false">
+                                                            Read more
+                                                        </button>
+                                                        <div class="collapse" id="review-@review.Id">
+                                                            <div class="card card-body mt-2">
+                                                                @review.Comment
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        @review.Comment
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <span class="text-muted">No comment</span>
+                                                }
+                                            </div>
+                                        </td>
+                                        <td>
+                                            @review.ReviewDate.ToString("MMM dd, yyyy")
+                                            <br>
+                                            <small class="text-muted">@review.ReviewDate.ToString("HH:mm")</small>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-sm btn-outline-danger" 
+                                                    onclick="confirmDeleteReview(@review.Id, '@review.User.FullName')">
+                                                <i class="fa fa-trash"></i> Delete
+                                            </button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+
+                    @if (!Model.Any())
+                    {
+                        <div class="text-center py-4">
+                            <i class="fa fa-star fa-3x text-muted mb-3"></i>
+                            <h5 class="text-muted">No reviews found</h5>
+                            <p class="text-muted">No customer reviews are available in the system.</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Review Statistics -->
+@if (Model.Any())
+{
+    <div class="row mt-4">
+        <div class="col-md-3">
+            <div class="card bg-warning text-white">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-grow-1">
+                            <h5 class="card-title">Average Rating</h5>
+                            <h3>@Model.Average(r => r.Rating).ToString("F1") / 5</h3>
+                        </div>
+                        <div class="flex-shrink-0">
+                            <i class="fa fa-star fa-2x opacity-75"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-success text-white">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-grow-1">
+                            <h5 class="card-title">5-Star Reviews</h5>
+                            <h3>@Model.Count(r => r.Rating == 5)</h3>
+                        </div>
+                        <div class="flex-shrink-0">
+                            <i class="fa fa-thumbs-up fa-2x opacity-75"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-info text-white">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-grow-1">
+                            <h5 class="card-title">Total Reviews</h5>
+                            <h3>@Model.Count()</h3>
+                        </div>
+                        <div class="flex-shrink-0">
+                            <i class="fa fa-comments fa-2x opacity-75"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-danger text-white">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-grow-1">
+                            <h5 class="card-title">Poor Reviews</h5>
+                            <h3>@Model.Count(r => r.Rating <= 2)</h3>
+                        </div>
+                        <div class="flex-shrink-0">
+                            <i class="fa fa-thumbs-down fa-2x opacity-75"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteReviewModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirm Delete</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this review by <strong id="reviewCustomer"></strong>?</p>
+                <p class="text-warning"><small>This action cannot be undone.</small></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <form method="post" style="display: inline;">
+                    <input type="hidden" id="deleteReviewId" name="id" />
+                    <button type="submit" asp-action="DeleteReview" class="btn btn-danger">Delete Review</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function confirmDeleteReview(reviewId, customerName) {
+    document.getElementById('deleteReviewId').value = reviewId;
+    document.getElementById('reviewCustomer').textContent = customerName;
+    new bootstrap.Modal(document.getElementById('deleteReviewModal')).show();
+}
+</script>

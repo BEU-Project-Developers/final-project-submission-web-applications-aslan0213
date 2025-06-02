@@ -76,6 +76,7 @@ wwwroot\img\logo.png
 wwwroot\img\play.png
 wwwroot\img\premium.jpg
 wwwroot\img\premium301.avif
+wwwroot\img\presidential.jpg
 wwwroot\img\room\avatar\avatar-1.jpg
 wwwroot\img\room\avatar\avatar-2.jpg
 wwwroot\img\room\room-1.jpg
@@ -89,6 +90,7 @@ wwwroot\img\room\room-b2.jpg
 wwwroot\img\room\room-b3.jpg
 wwwroot\img\room\room-b4.jpg
 wwwroot\img\room\room-details.jpg
+wwwroot\img\standart.jpg
 wwwroot\img\suit.jpg
 wwwroot\img\suit102.jpg
 wwwroot\img\testimonial-logo.png

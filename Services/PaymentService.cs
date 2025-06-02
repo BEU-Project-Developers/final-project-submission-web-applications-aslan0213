@@ -22,8 +22,6 @@ namespace HotelManagementSystem.Services
 
         public async Task<Payment> ProcessPaymentAsync(PaymentViewModel model)
         {
-            // In a real application, you would integrate with a payment gateway here
-            // For this demo, we'll simulate payment processing
             
             var booking = await _context.Bookings.FindAsync(model.BookingId);
             if (booking == null)
@@ -35,13 +33,12 @@ namespace HotelManagementSystem.Services
                 Amount = booking.TotalPrice,
                 PaymentDate = DateTime.Now,
                 PaymentMethod = model.PaymentMethod,
-                Status = "Completed", // Simulated successful payment
+                Status = "Completed", 
                 TransactionId = GenerateTransactionId()
             };
 
             _context.Payments.Add(payment);
             
-            // Update booking status to Confirmed after successful payment
             booking.Status = "Confirmed";
             
             await _context.SaveChangesAsync();
@@ -57,7 +54,6 @@ namespace HotelManagementSystem.Services
             if (payment == null || payment.Status != "Completed")
                 return false;
 
-            // In a real application, you would process the refund through the payment gateway
             payment.Status = "Refunded";
             payment.Booking.Status = "Cancelled";
 

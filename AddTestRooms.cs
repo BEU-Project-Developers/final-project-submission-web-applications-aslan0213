@@ -14,13 +14,13 @@ namespace HotelManagementSystem
     {
         static async Task Main(string[] args)
         {
-            // Build configuration
+            
             var configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .Build();
 
-            // Set up dependency injection
+            
             var serviceProvider = new ServiceCollection()
                 .AddDbContext<HotelDbContext>(options =>
                     options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")))
@@ -30,13 +30,13 @@ namespace HotelManagementSystem
             {
                 var dbContext = scope.ServiceProvider.GetRequiredService<HotelDbContext>();
 
-                // Check if we already have some rooms
+                
                 var existingCount = await dbContext.Rooms.CountAsync();
                 Console.WriteLine($"Currently there are {existingCount} rooms in the database.");
 
                 if (existingCount < 5)
                 {
-                    // Add some sample rooms
+                    
                     var rooms = new List<Room>
                     {
                         new Room
@@ -118,7 +118,7 @@ namespace HotelManagementSystem
                 }
                 else
                 {
-                    // Update existing rooms to ensure they're available
+                   
                     var allRooms = await dbContext.Rooms.ToListAsync();
                     int updatedCount = 0;
 
@@ -143,7 +143,7 @@ namespace HotelManagementSystem
                     }
                 }
 
-                // Print out all rooms after changes
+                
                 Console.WriteLine("\nCurrent rooms in the database:");
                 var finalRooms = await dbContext.Rooms.ToListAsync();
                 foreach (var room in finalRooms)

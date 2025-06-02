@@ -317,6 +317,10 @@
       "PackagePath": "staticwebassets\\img\\premium301.avif"
     },
     {
+      "Id": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\presidential.jpg",
+      "PackagePath": "staticwebassets\\img\\presidential.jpg"
+    },
+    {
       "Id": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\room\\avatar\\avatar-1.jpg",
       "PackagePath": "staticwebassets\\img\\room\\avatar\\avatar-1.jpg"
     },
@@ -367,6 +371,10 @@
     {
       "Id": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\room\\room-details.jpg",
       "PackagePath": "staticwebassets\\img\\room\\room-details.jpg"
+    },
+    {
+      "Id": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\standart.jpg",
+      "PackagePath": "staticwebassets\\img\\standart.jpg"
     },
     {
       "Id": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\wwwroot\\img\\suit.jpg",

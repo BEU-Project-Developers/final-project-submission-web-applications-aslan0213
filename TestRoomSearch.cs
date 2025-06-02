@@ -10,17 +10,17 @@ namespace HotelManagementSystem
         {
             Console.WriteLine("=== Testing Room Search Functionality ===");
             
-            // Check total rooms in database
+            
             var totalRooms = await context.Rooms.CountAsync();
             Console.WriteLine($"Total rooms in database: {totalRooms}");
             
-            // Check available rooms
+            
             var availableRooms = await context.Rooms
                 .Where(r => r.Status && r.IsAvailable)
                 .ToListAsync();
             Console.WriteLine($"Available rooms (Status=true AND IsAvailable=true): {availableRooms.Count}");
             
-            // List available rooms
+            
             foreach (var room in availableRooms)
             {
                 Console.WriteLine($"  - Room {room.RoomNumber}: {room.Type}, Capacity: {room.Capacity}, Price: ${room.Price}");
@@ -28,7 +28,7 @@ namespace HotelManagementSystem
             
             Console.WriteLine("\n=== Testing BookingService.GetAvailableRoomsAsync ===");
             
-            // Test search for tomorrow and day after
+            
             var checkIn = DateTime.Today.AddDays(1);
             var checkOut = DateTime.Today.AddDays(2);
             

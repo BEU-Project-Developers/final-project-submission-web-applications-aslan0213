@@ -30,11 +30,9 @@ namespace HotelManagementSystem.Services
             if (user == null)
                 return null;
 
-            // Check if password is correct
             if (!VerifyPassword(password, user.Password))
                 return null;
 
-            // If the user is using legacy SHA256 password, upgrade to PBKDF2
             if (IsLegacyPassword(user.Password))
             {
                 user.Password = HashPassword(password);
@@ -79,19 +77,15 @@ namespace HotelManagementSystem.Services
             return await _context.Users.AnyAsync(u => u.Email == email);
         }        public string HashPassword(string password)
         {
-            // Generate a random salt
             byte[] salt = new byte[16];
             using (var rng = RandomNumberGenerator.Create())
             {
                 rng.GetBytes(salt);
             }
-
-            // Hash the password with the salt
             using (var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 10000, HashAlgorithmName.SHA256))
             {
                 byte[] hash = pbkdf2.GetBytes(32);
                 
-                // Combine salt and hash
                 byte[] hashBytes = new byte[48];
                 Array.Copy(salt, 0, hashBytes, 0, 16);
                 Array.Copy(hash, 0, hashBytes, 16, 32);
@@ -102,11 +96,9 @@ namespace HotelManagementSystem.Services
         {
             try
             {
-                // First try PBKDF2 format (new format)
                 if (TryVerifyPBKDF2(password, hashedPassword))
                     return true;
                 
-                // Fall back to SHA256 format (legacy format)
                 return VerifyLegacySHA256(password, hashedPassword);
             }
             catch
@@ -119,23 +111,22 @@ namespace HotelManagementSystem.Services
         {
             try
             {
-                // Get the bytes from the stored hash
                 byte[] hashBytes = Convert.FromBase64String(hashedPassword);
                 
-                // PBKDF2 format should be 48 bytes (16 salt + 32 hash)
+                
                 if (hashBytes.Length != 48)
                     return false;
                 
-                // Extract the salt
+                
                 byte[] salt = new byte[16];
                 Array.Copy(hashBytes, 0, salt, 0, 16);
                 
-                // Hash the input password with the extracted salt
+                
                 using (var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 10000, HashAlgorithmName.SHA256))
                 {
                     byte[] hash = pbkdf2.GetBytes(32);
                     
-                    // Compare the computed hash with the stored hash
+                    
                     for (int i = 0; i < 32; i++)
                     {
                         if (hashBytes[i + 16] != hash[i])
@@ -170,7 +161,7 @@ namespace HotelManagementSystem.Services
             try
             {
                 byte[] hashBytes = Convert.FromBase64String(hashedPassword);
-                // PBKDF2 format is 48 bytes, SHA256 is 32 bytes
+                
                 return hashBytes.Length == 32;
             }
             catch

@@ -98,7 +98,7 @@ Date: {message.CreatedAt:dddd, MMMM dd, yyyy 'at' HH:mm}
 Message:
 {message.Message}
 
-Note: Please respond to this message using the customer's email address: {message.Email}";                // Send to hotel admin
+Note: Please respond to this message using the customer's email address: {message.Email}";                
                 var hotelEmail = _configuration["EmailSettings:HotelEmail"] ?? "aslanmamedov0213@gmail.com";
                 return await SendEmailAsync(hotelEmail, subject, htmlContent, plainTextContent);
             }

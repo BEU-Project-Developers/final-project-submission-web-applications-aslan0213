@@ -6481,6 +6481,88 @@
       ]
     },
     {
+      "Route": "img/presidential.jpg",
+      "AssetFile": "img/presidential.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "131554"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FLk93VsZMBuwbe5yHyTzY2Q0U4SN1Z+8oYR3lRGS3nc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 02 Jun 2025 06:38:28 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-FLk93VsZMBuwbe5yHyTzY2Q0U4SN1Z+8oYR3lRGS3nc="
+        }
+      ]
+    },
+    {
+      "Route": "img/presidential.wn9we4bl9c.jpg",
+      "AssetFile": "img/presidential.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "131554"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FLk93VsZMBuwbe5yHyTzY2Q0U4SN1Z+8oYR3lRGS3nc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 02 Jun 2025 06:38:28 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "wn9we4bl9c"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-FLk93VsZMBuwbe5yHyTzY2Q0U4SN1Z+8oYR3lRGS3nc="
+        },
+        {
+          "Name": "label",
+          "Value": "img/presidential.jpg"
+        }
+      ]
+    },
+    {
       "Route": "img/room/avatar/avatar-1.56gdbepp8a.jpg",
       "AssetFile": "img/room/avatar/avatar-1.jpg",
       "Selectors": [],
@@ -7543,6 +7625,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-8IpGkncD1ahXtwXCumbhhmU5wrS0FKPSKfqFw1clNqk="
+        }
+      ]
+    },
+    {
+      "Route": "img/standart.jpg",
+      "AssetFile": "img/standart.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "333359"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"34nb9tDAKvkSJ6epEMSo4RT44wCw49oOBwmh4xQMNM8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 02 Jun 2025 06:37:34 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-34nb9tDAKvkSJ6epEMSo4RT44wCw49oOBwmh4xQMNM8="
+        }
+      ]
+    },
+    {
+      "Route": "img/standart.vgcrutq8hq.jpg",
+      "AssetFile": "img/standart.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "333359"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"34nb9tDAKvkSJ6epEMSo4RT44wCw49oOBwmh4xQMNM8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 02 Jun 2025 06:37:34 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "vgcrutq8hq"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-34nb9tDAKvkSJ6epEMSo4RT44wCw49oOBwmh4xQMNM8="
+        },
+        {
+          "Name": "label",
+          "Value": "img/standart.jpg"
         }
       ]
     },

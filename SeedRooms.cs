@@ -8,7 +8,7 @@ namespace HotelManagementSystem
     {
         public static async Task SeedRoomsData(HotelDbContext context)
         {
-            // Check if rooms already exist
+            
             if (await context.Rooms.AnyAsync())
             {
                 Console.WriteLine("Rooms already exist in database. Skipping seed.");

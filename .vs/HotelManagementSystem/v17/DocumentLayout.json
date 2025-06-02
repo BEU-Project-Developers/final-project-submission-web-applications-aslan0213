@@ -1,39 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{8FA0AADF-FA9E-4222-9386-E06ABB384897}|HotelManagementSystem.csproj|c:\\users\\lenovo\\onedrive\\desktop\\c# final proektler(2ci hisse)\\hotelmanagementsystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{8FA0AADF-FA9E-4222-9386-E06ABB384897}|HotelManagementSystem.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8FA0AADF-FA9E-4222-9386-E06ABB384897}|HotelManagementSystem.csproj|c:\\users\\lenovo\\onedrive\\desktop\\c# final proektler(2ci hisse)\\hotelmanagementsystem\\views\\premiumroom\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8FA0AADF-FA9E-4222-9386-E06ABB384897}|HotelManagementSystem.csproj|solutionrelative:views\\premiumroom\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8FA0AADF-FA9E-4222-9386-E06ABB384897}|HotelManagementSystem.csproj|c:\\users\\lenovo\\onedrive\\desktop\\c# final proektler(2ci hisse)\\hotelmanagementsystem\\views\\familyroom\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8FA0AADF-FA9E-4222-9386-E06ABB384897}|HotelManagementSystem.csproj|solutionrelative:views\\familyroom\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8FA0AADF-FA9E-4222-9386-E06ABB384897}|HotelManagementSystem.csproj|c:\\users\\lenovo\\onedrive\\desktop\\c# final proektler(2ci hisse)\\hotelmanagementsystem\\views\\suiteroom\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8FA0AADF-FA9E-4222-9386-E06ABB384897}|HotelManagementSystem.csproj|solutionrelative:views\\suiteroom\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/HotelManagementDB/True/SqlTable/dbo.Rooms.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8FA0AADF-FA9E-4222-9386-E06ABB384897}|HotelManagementSystem.csproj|c:\\users\\lenovo\\onedrive\\desktop\\c# final proektler(2ci hisse)\\hotelmanagementsystem\\views\\deluxeroom\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8FA0AADF-FA9E-4222-9386-E06ABB384897}|HotelManagementSystem.csproj|solutionrelative:views\\deluxeroom\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8FA0AADF-FA9E-4222-9386-E06ABB384897}|HotelManagementSystem.csproj|c:\\users\\lenovo\\onedrive\\desktop\\c# final proektler(2ci hisse)\\hotelmanagementsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8FA0AADF-FA9E-4222-9386-E06ABB384897}|HotelManagementSystem.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8FA0AADF-FA9E-4222-9386-E06ABB384897}|HotelManagementSystem.csproj|c:\\users\\lenovo\\onedrive\\desktop\\c# final proektler(2ci hisse)\\hotelmanagementsystem\\views\\booking\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8FA0AADF-FA9E-4222-9386-E06ABB384897}|HotelManagementSystem.csproj|solutionrelative:views\\booking\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -41,112 +9,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{fbcae063-e2c0-4ab1-a516-996ea3dafb72}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAIAAACKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-06-01T21:06:23.359Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\Views\\PremiumRoom\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\PremiumRoom\\Index.cshtml",
-              "ToolTip": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\Views\\PremiumRoom\\Index.cshtml",
-              "RelativeToolTip": "Views\\PremiumRoom\\Index.cshtml",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABgAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-01T20:25:28.137Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\Views\\FamilyRoom\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\FamilyRoom\\Index.cshtml",
-              "ToolTip": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\Views\\FamilyRoom\\Index.cshtml",
-              "RelativeToolTip": "Views\\FamilyRoom\\Index.cshtml",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABAAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-01T20:21:30.847Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\Views\\SuiteRoom\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\SuiteRoom\\Index.cshtml",
-              "ToolTip": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\Views\\SuiteRoom\\Index.cshtml",
-              "RelativeToolTip": "Views\\SuiteRoom\\Index.cshtml",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAAABgAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-01T20:11:56.041Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "dbo.Rooms [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/HotelManagementDB/True/SqlTable/dbo.Rooms.sql",
-              "ToolTip": "dbo.Rooms [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-06-01T19:53:56.801Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAE4AAAAAAAAAAAAAAHUAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-01T19:45:53.438Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\Views\\DeluxeRoom\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\DeluxeRoom\\Index.cshtml",
-              "ToolTip": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\Views\\DeluxeRoom\\Index.cshtml",
-              "RelativeToolTip": "Views\\DeluxeRoom\\Index.cshtml",
-              "ViewState": "AgIAADkAAAAAAAAAAAAAAEcAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-01T19:44:44.46Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\Views\\Booking\\Details.cshtml",
-              "RelativeDocumentMoniker": "Views\\Booking\\Details.cshtml",
-              "ToolTip": "C:\\Users\\lenovo\\OneDrive\\Desktop\\c# final proektler(2ci hisse)\\HotelManagementSystem\\Views\\Booking\\Details.cshtml",
-              "RelativeToolTip": "Views\\Booking\\Details.cshtml",
-              "ViewState": "AgIAACcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-01T19:03:06.445Z",
-              "EditorCaption": ""
             }
           ]
         }

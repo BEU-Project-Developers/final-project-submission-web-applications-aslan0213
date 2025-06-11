@@ -19,7 +19,8 @@ namespace HotelManagementSystem.Controllers
             _context = context;
             _bookingService = bookingService;
             _paymentService = paymentService;
-        }        public async Task<IActionResult> Search(DateTime? checkIn, DateTime? checkOut, int guests = 1, string roomType = "")
+        }     
+        public async Task<IActionResult> Search(DateTime? checkIn, DateTime? checkOut, int guests = 1, string roomType = "")
         {
             var today = DateTime.Today;
 
@@ -155,21 +156,42 @@ namespace HotelManagementSystem.Controllers
             return View(model);
         }
 
-        [Authorize]
-        public async Task<IActionResult> Confirmation(int bookingId)
-        {
-            var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "0");
-            var booking = await _context.Bookings
-                .Include(b => b.Room)
-                .Include(b => b.Payments)
-                .FirstOrDefaultAsync(b => b.Id == bookingId && b.UserId == userId);
+		//[Authorize]
+		//public async Task<IActionResult> Confirmation(int bookingId)
+		//{
+		//    var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "0");
+		//    var booking = await _context.Bookings
+		//        .Include(b => b.Room)
+		//        .Include(b => b.Payments)
+		//        .FirstOrDefaultAsync(b => b.Id == bookingId && b.UserId == userId);
 
-            if (booking == null) return NotFound();
+		//    if (booking == null) return NotFound();
 
-            return View(booking);
-        }
+		//    return View(booking);
+		//}
 
-        [Authorize]
+
+		[Authorize]
+		public async Task<IActionResult> Confirmation(int bookingId)
+		{
+			var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "0");
+			var booking = await _context.Bookings
+				.Include(b => b.Room)
+				.Include(b => b.Payments)
+				.Include(b => b.User) 
+				.FirstOrDefaultAsync(b => b.Id == bookingId && b.UserId == userId);
+
+			if (booking == null)
+			{
+				return NotFound();
+			}
+			return View(booking);
+		}
+
+
+
+
+		[Authorize]
         public async Task<IActionResult> MyBookings()
         {
             var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "0");
